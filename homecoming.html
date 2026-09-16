@@ -1,0 +1,871 @@
+<title>청소년운영위원회 Must Have 홈커밍데이</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap">
+<style>
+  :root{
+    --paper:#F6F3E9;
+    --paper-alt:#EDE7D4;
+    --card:#FCFAF3;
+    --ink:#212A20;
+    --ink-soft:#57604F;
+    --forest:#26422F;
+    --forest-deep:#152318;
+    --forest-tint:#DEE6D8;
+    --gold:#A9793B;
+    --gold-soft:#EEDFBC;
+    --berry:#9C4152;
+    --berry-soft:#F1DADD;
+    --line:rgba(33,42,32,0.14);
+    --shadow:0 20px 44px -26px rgba(21,35,24,0.45);
+    --radius-lg:26px;
+    --radius-md:16px;
+    --radius-sm:10px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#141B15;
+      --paper-alt:#1B2419;
+      --card:#1D261E;
+      --ink:#ECE7D7;
+      --ink-soft:#B7BEAE;
+      --forest:#9BC2A4;
+      --forest-deep:#0D140F;
+      --forest-tint:#26352A;
+      --gold:#D9AE68;
+      --gold-soft:#332A19;
+      --berry:#E093A0;
+      --berry-soft:#382125;
+      --line:rgba(236,231,215,0.14);
+      --shadow:0 20px 44px -26px rgba(0,0,0,0.65);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#141B15;
+    --paper-alt:#1B2419;
+    --card:#1D261E;
+    --ink:#ECE7D7;
+    --ink-soft:#B7BEAE;
+    --forest:#9BC2A4;
+    --forest-deep:#0D140F;
+    --forest-tint:#26352A;
+    --gold:#D9AE68;
+    --gold-soft:#332A19;
+    --berry:#E093A0;
+    --berry-soft:#382125;
+    --line:rgba(236,231,215,0.14);
+    --shadow:0 20px 44px -26px rgba(0,0,0,0.65);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Gowun Dodum','Malgun Gothic',sans-serif;
+    line-height:1.7;
+    padding-inline:0;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    html{scroll-behavior:smooth;}
+  }
+  h1,h2,h3,.display{
+    font-family:'Gowun Batang',Georgia,serif;
+    font-weight:700;
+    text-wrap:balance;
+    color:var(--ink);
+    margin:0;
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  button{font-family:inherit;}
+  .container{
+    max-width:880px;
+    margin-inline:auto;
+    padding-inline:20px;
+  }
+  .eyebrow{
+    font-size:0.8rem;
+    letter-spacing:0.18em;
+    color:var(--gold);
+    font-weight:700;
+  }
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;
+    top:env(safe-area-inset-top,0px);
+    z-index:40;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:880px;
+    margin-inline:auto;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .brand{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    font-size:1.05rem;
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+    white-space:nowrap;
+  }
+  .brand span{color:var(--gold);}
+  .nav-links{
+    display:flex;
+    gap:4px;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{
+    font-size:0.86rem;
+    padding:8px 12px;
+    border-radius:999px;
+    text-decoration:none;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{
+    background:var(--forest-tint);
+    color:var(--forest);
+  }
+
+  main{display:block;}
+  section{
+    padding-block:56px;
+  }
+  .section-head{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:32px;
+  }
+  .section-head h2{
+    font-size:clamp(1.5rem,4vw,2rem);
+  }
+  .section-head .lede{
+    color:var(--ink-soft);
+    font-size:0.98rem;
+  }
+
+  /* ---------- hero / invitation ---------- */
+  .hero{
+    padding-block:48px 60px;
+    position:relative;
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .rings-wrap{
+    display:flex;
+    justify-content:center;
+  }
+  .rings-wrap svg{width:220px;height:220px;max-width:60vw;}
+  .hero h1{
+    font-size:clamp(2.1rem,6vw,3rem);
+    text-align:center;
+    margin-top:14px;
+  }
+  .hero .eyebrow{
+    display:block;
+    text-align:center;
+  }
+  .invite-letter{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:32px clamp(20px,5vw,44px);
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .invite-letter p{
+    font-size:1.02rem;
+  }
+  .invite-letter .salute{
+    font-family:'Gowun Batang',serif;
+    font-size:1.15rem;
+  }
+  .facts{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:12px;
+    margin-block:8px;
+    padding:18px;
+    background:var(--forest-tint);
+    border-radius:var(--radius-md);
+  }
+  .fact{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+  .fact .ico{font-size:1.15rem;line-height:1.5;}
+  .fact .label{font-size:0.78rem;color:var(--ink-soft);letter-spacing:0.04em;}
+  .fact .val{font-weight:700;font-family:'Gowun Batang',serif;font-size:1rem;}
+  .placeholder{
+    color:var(--ink-soft);
+    font-style:italic;
+    border-bottom:1px dotted var(--gold);
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .chip{
+    background:var(--gold-soft);
+    color:var(--gold);
+    border-radius:999px;
+    padding:7px 14px;
+    font-size:0.85rem;
+    font-weight:700;
+  }
+  .cta-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:14px;
+    margin-top:6px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border-radius:999px;
+    padding:13px 26px;
+    font-weight:700;
+    font-size:0.98rem;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{
+    background:var(--forest);
+    color:var(--paper);
+    box-shadow:0 14px 28px -16px color-mix(in srgb, var(--forest) 70%, transparent);
+  }
+  .btn-primary:disabled{opacity:0.55;cursor:not-allowed;transform:none;}
+  .btn-ghost{
+    background:transparent;
+    border-color:var(--line);
+    color:var(--ink);
+  }
+  .hint{font-size:0.86rem;color:var(--ink-soft);}
+  .signoff{
+    text-align:right;
+    font-family:'Gowun Batang',serif;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  :focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+
+  /* ---------- timeline ---------- */
+  .timeline{
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:74px;
+    top:6px;
+    bottom:6px;
+    width:2px;
+    background:var(--line);
+  }
+  .t-item{
+    position:relative;
+    display:grid;
+    grid-template-columns:74px 28px 1fr;
+    column-gap:12px;
+    padding-block:14px;
+  }
+  .t-time{
+    font-variant-numeric:tabular-nums;
+    font-weight:700;
+    font-size:0.86rem;
+    padding-top:2px;
+    text-align:right;
+    color:var(--ink-soft);
+  }
+  .t-dot{
+    display:flex;
+    justify-content:center;
+  }
+  .t-dot span{
+    width:11px;height:11px;border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--forest);
+    margin-top:5px;
+  }
+  .t-item.highlight .t-dot span{
+    background:var(--gold);
+    border-color:var(--gold);
+  }
+  .t-body{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:14px 16px;
+  }
+  .t-item.highlight .t-body{
+    border-color:var(--gold);
+    box-shadow:0 0 0 1px var(--gold-soft) inset;
+  }
+  .t-title{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    font-size:1.02rem;
+  }
+  .t-desc{
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    margin-top:4px;
+  }
+  .t-link{
+    display:inline-block;
+    margin-top:8px;
+    font-size:0.84rem;
+    font-weight:700;
+    color:var(--forest);
+    text-decoration:none;
+    border-bottom:1px solid var(--forest);
+  }
+  @media (max-width:520px){
+    .timeline::before{left:56px;}
+    .t-item{grid-template-columns:56px 20px 1fr;}
+    .t-time{font-size:0.76rem;}
+  }
+
+  /* ---------- speaker recruit (google form) ---------- */
+  .recruit-target{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:24px;
+  }
+  .recruit-guide{
+    background:var(--forest-tint);
+    border-radius:var(--radius-md);
+    padding:18px 20px;
+    margin-bottom:20px;
+  }
+  .recruit-guide p.gf-title{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .speaker-steps{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .speaker-step{
+    display:flex;
+    gap:10px;
+    font-size:0.86rem;
+  }
+  .speaker-step .n{
+    flex:none;
+    width:20px;height:20px;
+    border-radius:50%;
+    background:var(--gold-soft);
+    color:var(--gold);
+    font-size:0.72rem;
+    font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .speaker-step .t{color:var(--ink-soft);}
+  .gform-embed{
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    background:var(--card);
+    box-shadow:var(--shadow);
+  }
+  .gform-embed iframe{
+    width:100%;
+    min-height:1100px;
+    border:0;
+    display:block;
+  }
+  .gform-placeholder{
+    padding:44px 24px;
+    text-align:center;
+    color:var(--ink-soft);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+  .gform-placeholder .gf-title{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    font-size:1.1rem;
+    color:var(--ink);
+  }
+
+  /* ---------- rsvp ---------- */
+  .rsvp-layout{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  @media (min-width:720px){
+    .rsvp-layout{grid-template-columns:1fr 1fr;align-items:start;}
+  }
+  .rsvp-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:24px;
+    box-shadow:var(--shadow);
+  }
+  .rsvp-count-label{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    font-size:1.05rem;
+    margin-bottom:12px;
+  }
+  .rsvp-list-frame{
+    width:100%;
+    min-height:380px;
+    border:0;
+    border-radius:var(--radius-sm);
+    background:var(--paper);
+  }
+  .field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin-bottom:14px;
+  }
+  .field label{
+    font-size:0.84rem;
+    font-weight:700;
+    color:var(--ink-soft);
+  }
+  .field input, .field textarea{
+    font-family:inherit;
+    font-size:0.96rem;
+    padding:11px 13px;
+    border-radius:var(--radius-sm);
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+  }
+  .field textarea{resize:vertical;min-height:90px;}
+  .field-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+  .form-msg{
+    font-size:0.86rem;
+    margin-top:10px;
+    min-height:1.4em;
+  }
+  .form-msg.ok{color:var(--forest);}
+  .form-msg.err{color:var(--berry);}
+  .official-link{
+    margin-top:16px;
+    font-size:0.86rem;
+    color:var(--ink-soft);
+    padding-top:14px;
+    border-top:1px dashed var(--line);
+  }
+  .official-link a{
+    font-weight:700;
+    color:var(--forest);
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding-block:40px calc(48px + env(safe-area-inset-bottom,0px));
+    border-top:1px solid var(--line);
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:0.88rem;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  footer .foot-brand{
+    font-family:'Gowun Batang',serif;
+    color:var(--ink);
+    font-size:1rem;
+  }
+</style>
+
+<div class="nav">
+  <div class="nav-inner">
+    <div class="brand">Must Have<span>20</span></div>
+    <nav class="nav-links">
+      <a href="#invite">초대장</a>
+      <a href="#schedule">일정</a>
+      <a href="#speaker-recruit">연사 모집</a>
+      <a href="#rsvp">참여 표시</a>
+      <a href="#messages">응원 한마디</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+  <section id="invite" class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="rings-wrap" aria-hidden="true">
+          <svg viewBox="0 0 240 240">
+            <g fill="none" stroke-width="2">
+              <circle cx="120" cy="120" r="14" stroke="var(--gold)" stroke-width="3"/>
+              <circle cx="120" cy="120" r="28" stroke="var(--forest)" opacity="0.85"/>
+              <circle cx="120" cy="120" r="41" stroke="var(--gold)" opacity="0.7"/>
+              <circle cx="120" cy="120" r="53" stroke="var(--forest)" opacity="0.75"/>
+              <circle cx="120" cy="120" r="64" stroke="var(--gold)" opacity="0.6"/>
+              <circle cx="120" cy="120" r="74" stroke="var(--forest)" opacity="0.65"/>
+              <circle cx="120" cy="120" r="83" stroke="var(--gold)" opacity="0.5"/>
+              <circle cx="120" cy="120" r="91" stroke="var(--forest)" opacity="0.55"/>
+              <circle cx="120" cy="120" r="98" stroke="var(--gold)" opacity="0.4"/>
+              <circle cx="120" cy="120" r="104" stroke="var(--forest)" opacity="0.4"/>
+              <circle cx="120" cy="120" r="109" stroke="var(--gold)" opacity="0.3"/>
+              <circle cx="120" cy="120" r="113" stroke="var(--forest)" opacity="0.28"/>
+            </g>
+            <text x="120" y="128" text-anchor="middle" font-family="'Gowun Batang',serif" font-weight="700" font-size="30" fill="var(--forest)">20</text>
+          </svg>
+        </div>
+        <span class="eyebrow">청소년운영위원회 &lsquo;Must Have&rsquo; 20주년</span>
+        <h1>다시, 우리 Must Have로</h1>
+      </div>
+
+      <div class="invite-letter">
+        <p class="salute">선배님, 잘 지내셨나요?</p>
+        <p>20년 전 첫 회의부터 지금까지, 청소년운영위원회 Must Have는 선배님들이 남긴 발자국 위에서 자라왔습니다.</p>
+        <p>올해로 스무 살이 된 Must Have가 그 시간을 함께 만든 선배님과 지도자 선생님들을 집으로 초대합니다. 그때의 이야기, 지금의 이야기, 그리고 앞으로의 이야기를 후배들과 함께 나눠주세요.</p>
+
+        <div class="facts">
+          <div class="fact">
+            <span class="ico">📅</span>
+            <div><div class="label">일시</div><div class="val">2026년 10월 31일(토) 14:00–17:00</div></div>
+          </div>
+          <div class="fact">
+            <span class="ico">📍</span>
+            <div><div class="label">장소</div><div class="val">산울림청소년센터 <span class="placeholder">세부 공간 추후 안내</span></div></div>
+          </div>
+          <div class="fact">
+            <span class="ico">👥</span>
+            <div><div class="label">대상</div><div class="val">역대 Must Have 위원 및 지도자</div></div>
+          </div>
+        </div>
+
+        <div>
+          <p style="font-weight:700;margin-bottom:8px;">이런 시간이 준비되어 있어요</p>
+          <div class="chips">
+            <span class="chip">추억 사진전</span>
+            <span class="chip">선배 3인의 성장 이야기</span>
+            <span class="chip">선후배 테이블 토크</span>
+            <span class="chip">20년 후 Must Have에게 쓰는 편지</span>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#rsvp">참여 의사 표시하기</a>
+          <a class="btn btn-ghost" href="#schedule">일정 먼저 보기</a>
+        </div>
+        <p class="hint">같은 기수 친구와 함께 오시면 더 반가워요!</p>
+        <p class="signoff">제20기 Must Have 드림</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">당일 타임테이블</span>
+        <h2>2026.10.31(토) · 산울림청소년센터</h2>
+        <p class="lede">추억 전시부터 자율 네트워킹까지, 3시간 반의 흐름이에요.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="t-item"><span class="t-time">13:30</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">접수 &amp; 추억 전시</div><div class="t-desc">명찰 수령(활동연도별 색 스티커), 기수별 사진 전시, 포토월</div></div></li>
+        <li class="t-item"><span class="t-time">14:00</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">개회</div><div class="t-desc">20년 연혁 영상(3분), 기관장 인사, 현 위원장 환영사</div></div></li>
+        <li class="t-item"><span class="t-time">14:15</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">아이스브레이킹 &ldquo;시간의 줄&rdquo;</div><div class="t-desc">활동연도 순으로 한 줄 서기 → 가장 선배와 막내 인사, 같은 해 활동자끼리 인사</div></div></li>
+        <li class="t-item highlight"><span class="t-time">14:30</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">릴레이 발표 &ldquo;Must Have가 나를 키웠다&rdquo;</div><div class="t-desc">연사 3명 × 10분 + 전환, 현 위원이 소개 멘트 진행</div><a class="t-link" href="#speaker-recruit">연사로 지원하기 ↓</a></div></li>
+        <li class="t-item"><span class="t-time">15:15</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">쉬는 시간</div><div class="t-desc">다과, 포토월</div></div></li>
+        <li class="t-item"><span class="t-time">15:25</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">선후배 테이블 토크</div><div class="t-desc">테이블당 선배 2~3명 + 현 위원 3~4명, 15분씩 3라운드 (현 위원이 테이블장)</div></div></li>
+        <li class="t-item"><span class="t-time">16:10</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">제안 모으기</div><div class="t-desc">테이블별 1분 공유 → &ldquo;청소년 참여 활성화 제안벽&rdquo;에 포스트잇 부착</div></div></li>
+        <li class="t-item"><span class="t-time">16:30</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">관계 이어가기</div><div class="t-desc">20년 후 Must Have에게 쓰는 편지(타임캡슐), 선배→후배 롤링페이퍼, 멘토 연결 신청(희망자만)</div></div></li>
+        <li class="t-item"><span class="t-time">16:50</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">단체사진 &amp; 폐회</div><div class="t-desc">전체 사진, 기수별 사진 · 폐회 멘트는 현 위원장</div></div></li>
+        <li class="t-item"><span class="t-time">17:00</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">자율 네트워킹</div><div class="t-desc">선배들은 자유롭게 대화, 현 위원은 정리 후 짧은 소감 나누기 (~17:30)</div></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="speaker-recruit">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">연사 모집</span>
+        <h2>당신의 성장 이야기를 들려주세요</h2>
+        <p class="lede">Must Have 활동이 지금의 나에게 남긴 것을 10분 발표로 나눠주실 분을 찾고 있어요. 서로 다른 시기를 겪은 세 분이 모이면, 그 경험이 얼마나 다양한 방향으로 이어지는지 보여드릴 수 있어요.</p>
+      </div>
+
+      <div class="recruit-target">
+        <span class="chip">초기 기수 (1~5기)</span>
+        <span class="chip">중간 기수</span>
+        <span class="chip">최근 졸업생 또는 역대 지도자</span>
+      </div>
+
+      <div class="recruit-guide">
+        <p class="gf-title">발표는 이렇게 구성돼요 (10분)</p>
+        <div class="speaker-steps">
+          <div class="speaker-step"><span class="n">1</span><span class="t">Must Have에 들어가기 전의 나 (2분)</span></div>
+          <div class="speaker-step"><span class="n">2</span><span class="t">활동 중 가장 결정적이었던 장면 (3분)</span></div>
+          <div class="speaker-step"><span class="n">3</span><span class="t">그 경험이 지금의 나에게 남긴 것 (3분)</span></div>
+          <div class="speaker-step"><span class="n">4</span><span class="t">후배에게 한마디 (2분)</span></div>
+        </div>
+      </div>
+
+      <div class="gform-embed" id="gform-embed" data-form-url="https://docs.google.com/forms/d/e/1FAIpQLScHQWAJDpWtW4RBaH2wVuLW6vTX9nDMnHQMQYU1k1FBeU_6Vg/viewform?embedded=true">
+        <div class="gform-placeholder">
+          <p class="gf-title">📋 지원서, 곧 이 자리에 연결됩니다</p>
+          <p>지금 바로 지원하고 싶다면 아래로 문자나 전화 주세요.</p>
+          <p><strong>김민선 청소년지도사</strong> · 032-344-4480</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">참여 표시</span>
+        <h2>함께하실 선배님, 이름을 남겨주세요</h2>
+        <p class="lede">아래에 이름을 남기면 참여 의사가 이 페이지에 바로 표시돼요. 다른 선후배님들도 함께 볼 수 있어요.</p>
+      </div>
+
+      <div class="rsvp-layout">
+        <div class="rsvp-card">
+          <form id="rsvp-form" method="POST" target="rsvp-target" novalidate>
+            <input type="hidden" name="type" value="rsvp">
+            <div class="field-row">
+              <div class="field">
+                <label for="f-name">이름 *</label>
+                <input id="f-name" name="name" type="text" maxlength="30" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="f-cohort">기수·활동연도 *</label>
+                <input id="f-cohort" name="cohort" type="text" maxlength="20" placeholder="예: 5기 (2011)" required>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="f-guests">동반 인원</label>
+                <input id="f-guests" name="guests" type="number" min="0" max="6" value="0">
+              </div>
+              <div class="field">
+                <label for="f-note">한마디 (선택)</label>
+                <input id="f-note" name="note" type="text" maxlength="60" placeholder="오랜만이에요!">
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit" id="rsvp-submit" style="width:100%;">참여 의사 남기기</button>
+            <p class="form-msg" id="rsvp-msg" role="status" aria-live="polite"></p>
+          </form>
+          <iframe name="rsvp-target" id="rsvp-target" title="참여 신청 전송" hidden></iframe>
+
+          <div class="official-link">
+            정확한 좌석·다과 준비를 위해 공식 신청서도 함께 작성해주시면 더 좋아요.<br>
+            📝 <a class="placeholder" href="#">신청 링크 추후 안내</a> · 마감 <span class="placeholder">추후 안내</span><br>
+            ☎️ 문의 김민선 청소년지도사 · 032-344-4480
+          </div>
+        </div>
+
+        <div class="rsvp-card">
+          <div class="rsvp-count-label">지금까지 함께하기로 한 분들</div>
+          <iframe id="rsvp-list-frame" class="rsvp-list-frame" title="참여 명단" loading="lazy" hidden></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="messages">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">응원 한마디</span>
+        <h2>당신의 한마디를 더해주세요</h2>
+        <p class="lede">20주년을 맞은 청소년운영위원회 Must Have와, 그 시간을 함께한 모든 분들께 축하와 응원의 마음을 남겨주세요.</p>
+      </div>
+
+      <div class="rsvp-layout">
+        <div class="rsvp-card">
+          <form id="msg-form" method="POST" target="msg-target" novalidate>
+            <input type="hidden" name="type" value="message">
+            <div class="field">
+              <label for="m-name">이름 *</label>
+              <input id="m-name" name="name" type="text" maxlength="20" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="m-message">응원 메시지 *</label>
+              <textarea id="m-message" name="message" maxlength="200" placeholder="20년 동안 자라온 Must Have에게, 그리고 함께할 후배들에게 한마디 남겨주세요." required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" id="msg-submit" style="width:100%;">응원 메시지 남기기</button>
+            <p class="form-msg" id="msg-msg" role="status" aria-live="polite"></p>
+          </form>
+          <iframe name="msg-target" id="msg-target" title="응원 메시지 전송" hidden></iframe>
+        </div>
+
+        <div class="rsvp-card">
+          <div class="rsvp-count-label">먼저 남겨주신 마음들</div>
+          <iframe id="msg-list-frame" class="rsvp-list-frame" title="응원 메시지 명단" loading="lazy" hidden></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-brand">청소년운영위원회 Must Have 20주년 홈커밍데이</div>
+  <div>문의 김민선 청소년지도사 · 032-344-4480</div>
+  <div>제20기 Must Have 드림</div>
+</footer>
+
+<script>
+(function(){
+  var RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxt0R8OJu8hQzfLaz_HezuB3iYE9PZ-BbyRXKiX9Kql3IOd-lKUTUKeWoDDv1WU0X5Yjg/exec';
+
+  var form = document.getElementById('rsvp-form');
+  var msgEl = document.getElementById('rsvp-msg');
+  var submitBtn = document.getElementById('rsvp-submit');
+  var targetFrame = document.getElementById('rsvp-target');
+  var listFrame = document.getElementById('rsvp-list-frame');
+
+  function setMsg(text, kind){
+    msgEl.textContent = text;
+    msgEl.className = 'form-msg' + (kind ? ' ' + kind : '');
+  }
+
+  function refreshList(){
+    if (!RSVP_ENDPOINT) return;
+    listFrame.hidden = false;
+    listFrame.src = RSVP_ENDPOINT + '?type=rsvp&t=' + Date.now();
+  }
+
+  var gformWrap = document.getElementById('gform-embed');
+  var gformUrl = gformWrap ? gformWrap.getAttribute('data-form-url') : '';
+  if (gformWrap && gformUrl){
+    gformWrap.innerHTML = '<iframe src="' + gformUrl + '" title="연사 모집 신청서" loading="lazy">로드 중…</iframe>';
+  }
+
+  if (RSVP_ENDPOINT){
+    form.action = RSVP_ENDPOINT;
+    refreshList();
+  }
+
+  // 참여 신청은 fetch가 아니라 숨겨진 iframe으로 실제 폼 전송을 해요.
+  // (클로드 아티팩트 안에서는 임의 도메인으로의 fetch/XHR이 보안 정책상 막혀 있어서,
+  //  전통적인 <form target="iframe"> 방식이 더 안전하게 통과돼요.)
+  form.addEventListener('submit', function(ev){
+    var name = document.getElementById('f-name').value.trim();
+    var cohort = document.getElementById('f-cohort').value.trim();
+
+    if (!RSVP_ENDPOINT){
+      ev.preventDefault();
+      setMsg('지금은 참여 표시 저장이 준비 중이에요. 아래 공식 신청서를 이용해주세요.', 'err');
+      return;
+    }
+    if (!name || !cohort){
+      ev.preventDefault();
+      setMsg('이름과 기수·활동연도를 입력해주세요.', 'err');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '저장 중...';
+    setMsg('', '');
+
+    targetFrame.addEventListener('load', function onLoad(){
+      targetFrame.removeEventListener('load', onLoad);
+      submitBtn.disabled = false;
+      submitBtn.textContent = '참여 의사 남기기';
+      setMsg('참여 의사가 표시됐어요. 곧 만나요! 🎉', 'ok');
+      form.reset();
+      refreshList();
+    });
+    // 여기서는 preventDefault를 하지 않아요 — 브라우저가 실제로 폼을 제출하도록 둡니다.
+  });
+
+  var msgForm = document.getElementById('msg-form');
+  var msgMsgEl = document.getElementById('msg-msg');
+  var msgSubmitBtn = document.getElementById('msg-submit');
+  var msgTargetFrame = document.getElementById('msg-target');
+  var msgListFrame = document.getElementById('msg-list-frame');
+
+  function setMsgMsg(text, kind){
+    msgMsgEl.textContent = text;
+    msgMsgEl.className = 'form-msg' + (kind ? ' ' + kind : '');
+  }
+
+  function refreshMessages(){
+    if (!RSVP_ENDPOINT) return;
+    msgListFrame.hidden = false;
+    msgListFrame.src = RSVP_ENDPOINT + '?type=message&t=' + Date.now();
+  }
+
+  if (RSVP_ENDPOINT){
+    msgForm.action = RSVP_ENDPOINT;
+    refreshMessages();
+  }
+
+  msgForm.addEventListener('submit', function(ev){
+    var name = document.getElementById('m-name').value.trim();
+    var message = document.getElementById('m-message').value.trim();
+
+    if (!RSVP_ENDPOINT){
+      ev.preventDefault();
+      setMsgMsg('지금은 메시지 저장이 준비 중이에요.', 'err');
+      return;
+    }
+    if (!name || !message){
+      ev.preventDefault();
+      setMsgMsg('이름과 메시지를 입력해주세요.', 'err');
+      return;
+    }
+
+    msgSubmitBtn.disabled = true;
+    msgSubmitBtn.textContent = '저장 중...';
+    setMsgMsg('', '');
+
+    msgTargetFrame.addEventListener('load', function onLoad(){
+      msgTargetFrame.removeEventListener('load', onLoad);
+      msgSubmitBtn.disabled = false;
+      msgSubmitBtn.textContent = '응원 메시지 남기기';
+      setMsgMsg('마음이 잘 전달됐어요. 고맙습니다 💌', 'ok');
+      msgForm.reset();
+      refreshMessages();
+    });
+  });
+})();
+</script>
