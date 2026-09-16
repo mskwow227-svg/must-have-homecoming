@@ -141,10 +141,42 @@
     background:var(--forest-tint);
     color:var(--forest);
   }
+  .nav-links a.active{
+    background:var(--forest-tint);
+    color:var(--forest);
+    font-weight:700;
+  }
 
   main{display:block;}
   section{
     padding-block:56px;
+  }
+  section.alt-bg{
+    background:var(--paper-alt);
+  }
+  .wave-divider{
+    line-height:0;
+    background:var(--paper);
+  }
+  .wave-divider svg{
+    display:block;
+    width:100%;
+    height:36px;
+  }
+  .wave-divider path{
+    fill:var(--paper-alt);
+  }
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:none;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
   }
   .section-head{
     display:flex;
@@ -170,11 +202,6 @@
     grid-template-columns:1fr;
     gap:28px;
   }
-  .rings-wrap{
-    display:flex;
-    justify-content:center;
-  }
-  .rings-wrap svg{width:220px;height:220px;max-width:60vw;}
   .hero h1{
     font-size:clamp(2.1rem,6vw,3rem);
     text-align:center;
@@ -359,17 +386,18 @@
   }
 
   /* ---------- speaker recruit (google form) ---------- */
-  .recruit-target{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:24px;
+  .recruit-row{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  @media (min-width:640px){
+    .recruit-row{grid-template-columns:1fr 1fr;align-items:stretch;}
   }
   .recruit-guide{
     background:var(--forest-tint);
     border-radius:var(--radius-md);
     padding:18px 20px;
-    margin-bottom:20px;
   }
   .recruit-guide p.gf-title{
     font-family:'Gowun Batang',serif;
@@ -397,33 +425,17 @@
     display:flex;align-items:center;justify-content:center;
   }
   .speaker-step .t{color:var(--ink-soft);}
-  .gform-embed{
-    border:1px solid var(--line);
-    border-radius:var(--radius-lg);
-    overflow:hidden;
-    background:var(--card);
-    box-shadow:var(--shadow);
-  }
-  .gform-embed iframe{
-    width:100%;
-    min-height:1100px;
-    border:0;
-    display:block;
-  }
-  .gform-placeholder{
-    padding:44px 24px;
-    text-align:center;
-    color:var(--ink-soft);
+  .gform-cta{
     display:flex;
     flex-direction:column;
-    align-items:center;
-    gap:10px;
-  }
-  .gform-placeholder .gf-title{
-    font-family:'Gowun Batang',serif;
-    font-weight:700;
-    font-size:1.1rem;
-    color:var(--ink);
+    align-items:flex-start;
+    justify-content:center;
+    gap:12px;
+    padding:24px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow);
   }
 
   /* ---------- rsvp ---------- */
@@ -454,6 +466,26 @@
     border:0;
     border-radius:var(--radius-sm);
     background:var(--paper);
+  }
+  .rsvp-live-count{
+    text-align:center;
+    margin-top:10px;
+    font-weight:700;
+    color:var(--ink-soft);
+  }
+  .count-num{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    color:var(--forest);
+  }
+  .rsvp-count-big{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    font-size:2rem;
+    color:var(--forest);
+    display:flex;
+    align-items:center;
+    gap:4px;
   }
   .field{
     display:flex;
@@ -511,6 +543,25 @@
     flex-direction:column;
     gap:6px;
   }
+  .footer-logos{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:10px;
+  }
+  .logo-chip{
+    display:inline-flex;
+    align-items:center;
+    background:#fff;
+    border-radius:12px;
+    padding:8px 14px;
+  }
+  .logo-chip img{
+    height:26px;
+    width:auto;
+    display:block;
+  }
   footer .foot-brand{
     font-family:'Gowun Batang',serif;
     color:var(--ink);
@@ -537,30 +588,12 @@
   <section id="invite" class="hero">
     <div class="container hero-inner">
       <div>
-        <div class="rings-wrap" aria-hidden="true">
-          <svg viewBox="0 0 240 240">
-            <g fill="none" stroke-width="2">
-              <circle cx="120" cy="120" r="14" stroke="var(--gold)" stroke-width="3"/>
-              <circle cx="120" cy="120" r="28" stroke="var(--forest)" opacity="0.85"/>
-              <circle cx="120" cy="120" r="41" stroke="var(--gold)" opacity="0.7"/>
-              <circle cx="120" cy="120" r="53" stroke="var(--forest)" opacity="0.75"/>
-              <circle cx="120" cy="120" r="64" stroke="var(--gold)" opacity="0.6"/>
-              <circle cx="120" cy="120" r="74" stroke="var(--forest)" opacity="0.65"/>
-              <circle cx="120" cy="120" r="83" stroke="var(--gold)" opacity="0.5"/>
-              <circle cx="120" cy="120" r="91" stroke="var(--forest)" opacity="0.55"/>
-              <circle cx="120" cy="120" r="98" stroke="var(--gold)" opacity="0.4"/>
-              <circle cx="120" cy="120" r="104" stroke="var(--forest)" opacity="0.4"/>
-              <circle cx="120" cy="120" r="109" stroke="var(--gold)" opacity="0.3"/>
-              <circle cx="120" cy="120" r="113" stroke="var(--forest)" opacity="0.28"/>
-            </g>
-            <text x="120" y="128" text-anchor="middle" font-family="'Gowun Batang',serif" font-weight="700" font-size="30" fill="var(--forest)">20</text>
-          </svg>
-        </div>
         <span class="eyebrow">청소년운영위원회 &lsquo;Must Have&rsquo; 20주년</span>
         <h1>다시, 우리 Must Have로</h1>
+        <p class="rsvp-live-count">🎉 지금까지 <span class="count-num" id="hero-count-num">0</span>명의 선배가 함께하기로 했어요</p>
       </div>
 
-      <div class="invite-letter">
+      <div class="invite-letter reveal">
         <p class="salute">선배님, 잘 지내셨나요?</p>
         <p>20년 전 첫 회의부터 지금까지, 청소년운영위원회 Must Have는 선배님들이 남긴 발자국 위에서 자라왔습니다.</p>
         <p>올해로 스무 살이 된 Must Have가 그 시간을 함께 만든 선배님과 지도자 선생님들을 집으로 초대합니다. 그때의 이야기, 지금의 이야기, 그리고 앞으로의 이야기를 후배들과 함께 나눠주세요.</p>
@@ -568,7 +601,7 @@
         <div class="facts">
           <div class="fact">
             <span class="ico">📅</span>
-            <div><div class="label">일시</div><div class="val">2026년 10월 31일(토) 14:00–17:00</div></div>
+            <div><div class="label">일시</div><div class="val">2026년 10월 31일(토) 14:00–16:00</div></div>
           </div>
           <div class="fact">
             <span class="ico">📍</span>
@@ -593,6 +626,8 @@
         <div class="cta-row">
           <a class="btn btn-primary" href="#rsvp">참여 의사 표시하기</a>
           <a class="btn btn-ghost" href="#schedule">일정 먼저 보기</a>
+          <a class="btn btn-ghost" id="calendar-btn" href="#" target="_blank" rel="noopener">🗓️ 캘린더에 추가</a>
+          <button class="btn btn-ghost" type="button" id="share-btn">🔗 공유하기</button>
         </div>
         <p class="hint">같은 기수 친구와 함께 오시면 더 반가워요!</p>
         <p class="signoff">제20기 Must Have 드림</p>
@@ -600,82 +635,73 @@
     </div>
   </section>
 
-  <section id="schedule">
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,32 C240,64 480,0 720,20 C960,40 1200,64 1440,28 L1440,60 L0,60 Z"></path></svg>
+  </div>
+
+  <section id="schedule" class="alt-bg">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">당일 타임테이블</span>
         <h2>2026.10.31(토) · 산울림청소년센터</h2>
-        <p class="lede">추억 전시부터 자율 네트워킹까지, 3시간 반의 흐름이에요.</p>
+        <p class="lede">개회부터 폐회까지, 알차게 채운 2시간이에요.</p>
       </div>
 
-      <ol class="timeline">
+      <ol class="timeline reveal">
         <li class="t-item"><span class="t-time">13:30</span><span class="t-dot"><span></span></span>
           <div class="t-body"><div class="t-title">접수 &amp; 추억 전시</div><div class="t-desc">명찰 수령(활동연도별 색 스티커), 기수별 사진 전시, 포토월</div></div></li>
         <li class="t-item"><span class="t-time">14:00</span><span class="t-dot"><span></span></span>
-          <div class="t-body"><div class="t-title">개회</div><div class="t-desc">20년 연혁 영상(3분), 기관장 인사, 현 위원장 환영사</div></div></li>
-        <li class="t-item"><span class="t-time">14:15</span><span class="t-dot"><span></span></span>
-          <div class="t-body"><div class="t-title">아이스브레이킹 &ldquo;시간의 줄&rdquo;</div><div class="t-desc">활동연도 순으로 한 줄 서기 → 가장 선배와 막내 인사, 같은 해 활동자끼리 인사</div></div></li>
-        <li class="t-item highlight"><span class="t-time">14:30</span><span class="t-dot"><span></span></span>
-          <div class="t-body"><div class="t-title">릴레이 발표 &ldquo;Must Have가 나를 키웠다&rdquo;</div><div class="t-desc">연사 3명 × 10분 + 전환, 현 위원이 소개 멘트 진행</div><a class="t-link" href="#speaker-recruit">연사로 지원하기 ↓</a></div></li>
-        <li class="t-item"><span class="t-time">15:15</span><span class="t-dot"><span></span></span>
-          <div class="t-body"><div class="t-title">쉬는 시간</div><div class="t-desc">다과, 포토월</div></div></li>
-        <li class="t-item"><span class="t-time">15:25</span><span class="t-dot"><span></span></span>
-          <div class="t-body"><div class="t-title">선후배 테이블 토크</div><div class="t-desc">테이블당 선배 2~3명 + 현 위원 3~4명, 15분씩 3라운드 (현 위원이 테이블장)</div></div></li>
-        <li class="t-item"><span class="t-time">16:10</span><span class="t-dot"><span></span></span>
-          <div class="t-body"><div class="t-title">제안 모으기</div><div class="t-desc">테이블별 1분 공유 → &ldquo;청소년 참여 활성화 제안벽&rdquo;에 포스트잇 부착</div></div></li>
-        <li class="t-item"><span class="t-time">16:30</span><span class="t-dot"><span></span></span>
-          <div class="t-body"><div class="t-title">관계 이어가기</div><div class="t-desc">20년 후 Must Have에게 쓰는 편지(타임캡슐), 선배→후배 롤링페이퍼, 멘토 연결 신청(희망자만)</div></div></li>
-        <li class="t-item"><span class="t-time">16:50</span><span class="t-dot"><span></span></span>
-          <div class="t-body"><div class="t-title">단체사진 &amp; 폐회</div><div class="t-desc">전체 사진, 기수별 사진 · 폐회 멘트는 현 위원장</div></div></li>
-        <li class="t-item"><span class="t-time">17:00</span><span class="t-dot"><span></span></span>
-          <div class="t-body"><div class="t-title">자율 네트워킹</div><div class="t-desc">선배들은 자유롭게 대화, 현 위원은 정리 후 짧은 소감 나누기 (~17:30)</div></div></li>
+          <div class="t-body"><div class="t-title">개회</div><div class="t-desc">20년 연혁 영상, 인사말</div></div></li>
+        <li class="t-item highlight"><span class="t-time">14:10</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">릴레이 발표 &ldquo;Must Have가 나를 키웠다&rdquo;</div><div class="t-desc">연사 3명 × 10분</div><a class="t-link" href="#speaker-recruit">연사로 지원하기 ↓</a></div></li>
+        <li class="t-item"><span class="t-time">14:55</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">선후배 테이블 토크</div><div class="t-desc">테이블당 선배·현 위원이 함께 둘러앉아 이야기 나눠요</div></div></li>
+        <li class="t-item"><span class="t-time">15:35</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">관계 이어가기</div><div class="t-desc">선배→후배 롤링페이퍼 작성</div></div></li>
+        <li class="t-item"><span class="t-time">15:50</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">단체사진 &amp; 폐회</div><div class="t-desc">전체 사진, 폐회 멘트</div></div></li>
+        <li class="t-item"><span class="t-time">16:00</span><span class="t-dot"><span></span></span>
+          <div class="t-body"><div class="t-title">자율 네트워킹</div><div class="t-desc">원하시는 분들은 남아서 자유롭게 대화해요 (선택)</div></div></li>
       </ol>
     </div>
   </section>
 
   <section id="speaker-recruit">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">연사 모집</span>
         <h2>당신의 성장 이야기를 들려주세요</h2>
         <p class="lede">Must Have 활동이 지금의 나에게 남긴 것을 10분 발표로 나눠주실 분을 찾고 있어요. 서로 다른 시기를 겪은 세 분이 모이면, 그 경험이 얼마나 다양한 방향으로 이어지는지 보여드릴 수 있어요.</p>
       </div>
 
-      <div class="recruit-target">
-        <span class="chip">초기 기수 (1~5기)</span>
-        <span class="chip">중간 기수</span>
-        <span class="chip">최근 졸업생 또는 역대 지도자</span>
-      </div>
-
-      <div class="recruit-guide">
-        <p class="gf-title">발표는 이렇게 구성돼요 (10분)</p>
-        <div class="speaker-steps">
-          <div class="speaker-step"><span class="n">1</span><span class="t">Must Have에 들어가기 전의 나 (2분)</span></div>
-          <div class="speaker-step"><span class="n">2</span><span class="t">활동 중 가장 결정적이었던 장면 (3분)</span></div>
-          <div class="speaker-step"><span class="n">3</span><span class="t">그 경험이 지금의 나에게 남긴 것 (3분)</span></div>
-          <div class="speaker-step"><span class="n">4</span><span class="t">후배에게 한마디 (2분)</span></div>
+      <div class="recruit-row reveal">
+        <div class="recruit-guide">
+          <p class="gf-title">발표는 이렇게 구성돼요 (10분)</p>
+          <div class="speaker-steps">
+            <div class="speaker-step"><span class="n">1</span><span class="t">Must Have에 들어가기 전의 나 (2분)</span></div>
+            <div class="speaker-step"><span class="n">2</span><span class="t">활동 중 가장 결정적이었던 장면 (3분)</span></div>
+            <div class="speaker-step"><span class="n">3</span><span class="t">그 경험이 지금의 나에게 남긴 것 (3분)</span></div>
+            <div class="speaker-step"><span class="n">4</span><span class="t">후배에게 한마디 (2분)</span></div>
+          </div>
         </div>
-      </div>
 
-      <div class="gform-embed" id="gform-embed" data-form-url="https://docs.google.com/forms/d/e/1FAIpQLScHQWAJDpWtW4RBaH2wVuLW6vTX9nDMnHQMQYU1k1FBeU_6Vg/viewform?embedded=true">
-        <div class="gform-placeholder">
-          <p class="gf-title">📋 지원서, 곧 이 자리에 연결됩니다</p>
-          <p>지금 바로 지원하고 싶다면 아래로 문자나 전화 주세요.</p>
-          <p><strong>김민선 청소년지도사</strong> · 032-344-4480</p>
+        <div class="gform-cta">
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScHQWAJDpWtW4RBaH2wVuLW6vTX9nDMnHQMQYU1k1FBeU_6Vg/viewform" target="_blank" rel="noopener">📋 연사 지원서 작성하기</a>
+          <p class="hint">새 탭에서 구글폼이 열려요. 지금 바로 지원하고 싶다면 전화나 문자도 좋아요 — <strong>김민선 청소년지도사 · 032-344-4480</strong></p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="rsvp">
+  <section id="rsvp" class="alt-bg">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">참여 표시</span>
         <h2>함께하실 선배님, 이름을 남겨주세요</h2>
         <p class="lede">아래에 이름을 남기면 참여 의사가 이 페이지에 바로 표시돼요. 다른 선후배님들도 함께 볼 수 있어요.</p>
       </div>
 
-      <div class="rsvp-layout">
+      <div class="rsvp-layout reveal">
         <div class="rsvp-card">
           <form id="rsvp-form" method="POST" target="rsvp-target" novalidate>
             <input type="hidden" name="type" value="rsvp">
@@ -701,6 +727,7 @@
             </div>
             <button class="btn btn-primary" type="submit" id="rsvp-submit" style="width:100%;">참여 의사 남기기</button>
             <p class="form-msg" id="rsvp-msg" role="status" aria-live="polite"></p>
+            <p class="hint">남기신 성함은 이 페이지에 공개되지 않아요. 준비팀만 확인합니다.</p>
           </form>
           <iframe name="rsvp-target" id="rsvp-target" title="참여 신청 전송" hidden></iframe>
 
@@ -713,7 +740,8 @@
 
         <div class="rsvp-card">
           <div class="rsvp-count-label">지금까지 함께하기로 한 분들</div>
-          <iframe id="rsvp-list-frame" class="rsvp-list-frame" title="참여 명단" loading="lazy" hidden></iframe>
+          <p class="rsvp-count-big"><span class="count-num" id="rsvp-count-num">0</span>명</p>
+          <p class="hint">이름은 공개되지 않고 숫자만 표시돼요.</p>
         </div>
       </div>
     </div>
@@ -721,13 +749,13 @@
 
   <section id="messages">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">응원 한마디</span>
         <h2>당신의 한마디를 더해주세요</h2>
         <p class="lede">20주년을 맞은 청소년운영위원회 Must Have와, 그 시간을 함께한 모든 분들께 축하와 응원의 마음을 남겨주세요.</p>
       </div>
 
-      <div class="rsvp-layout">
+      <div class="rsvp-layout reveal">
         <div class="rsvp-card">
           <form id="msg-form" method="POST" target="msg-target" novalidate>
             <input type="hidden" name="type" value="message">
@@ -755,6 +783,10 @@
 </main>
 
 <footer>
+  <div class="footer-logos">
+    <span class="logo-chip"><img src="assets/sanullim-logo.png" alt="산울림청소년센터" loading="lazy"></span>
+    <span class="logo-chip"><img src="assets/musthave-logo.png" alt="청소년운영위원회 Must Have" loading="lazy"></span>
+  </div>
   <div class="foot-brand">청소년운영위원회 Must Have 20주년 홈커밍데이</div>
   <div>문의 김민선 청소년지도사 · 032-344-4480</div>
   <div>제20기 Must Have 드림</div>
@@ -768,28 +800,58 @@
   var msgEl = document.getElementById('rsvp-msg');
   var submitBtn = document.getElementById('rsvp-submit');
   var targetFrame = document.getElementById('rsvp-target');
-  var listFrame = document.getElementById('rsvp-list-frame');
 
   function setMsg(text, kind){
     msgEl.textContent = text;
     msgEl.className = 'form-msg' + (kind ? ' ' + kind : '');
   }
 
-  function refreshList(){
-    if (!RSVP_ENDPOINT) return;
-    listFrame.hidden = false;
-    listFrame.src = RSVP_ENDPOINT + '?type=rsvp&t=' + Date.now();
-  }
+  window.__mhCount = function(n){
+    var a = document.getElementById('hero-count-num');
+    var b = document.getElementById('rsvp-count-num');
+    if (a) a.textContent = n;
+    if (b) b.textContent = n;
+  };
 
-  var gformWrap = document.getElementById('gform-embed');
-  var gformUrl = gformWrap ? gformWrap.getAttribute('data-form-url') : '';
-  if (gformWrap && gformUrl){
-    gformWrap.innerHTML = '<iframe src="' + gformUrl + '" title="연사 모집 신청서" loading="lazy">로드 중…</iframe>';
+  function refreshCounts(){
+    if (!RSVP_ENDPOINT) return;
+    var s = document.createElement('script');
+    s.src = RSVP_ENDPOINT + '?type=count&t=' + Date.now();
+    s.onload = function(){ s.remove(); };
+    s.onerror = function(){ s.remove(); };
+    document.body.appendChild(s);
   }
 
   if (RSVP_ENDPOINT){
     form.action = RSVP_ENDPOINT;
-    refreshList();
+    refreshCounts();
+  }
+
+  var calendarBtn = document.getElementById('calendar-btn');
+  if (calendarBtn){
+    var calTitle = encodeURIComponent('청소년운영위원회 Must Have 20주년 홈커밍데이');
+    var calDetails = encodeURIComponent('다시, 우리 Must Have로 — 20년 전 함께한 선배님들을 초대합니다.');
+    var calLocation = encodeURIComponent('산울림청소년센터 (세부 공간 추후 안내)');
+    calendarBtn.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + calTitle +
+      '&dates=20261031T050000Z/20261031T070000Z&details=' + calDetails + '&location=' + calLocation;
+  }
+
+  var shareBtn = document.getElementById('share-btn');
+  if (shareBtn){
+    shareBtn.addEventListener('click', function(){
+      var shareData = { title: document.title, text: '청소년운영위원회 Must Have 20주년 홈커밍데이에 초대합니다!', url: location.href };
+      if (navigator.share){
+        navigator.share(shareData).catch(function(){});
+        return;
+      }
+      if (navigator.clipboard){
+        navigator.clipboard.writeText(location.href).then(function(){
+          var original = shareBtn.textContent;
+          shareBtn.textContent = '링크 복사됨!';
+          setTimeout(function(){ shareBtn.textContent = original; }, 2000);
+        });
+      }
+    });
   }
 
   // 참여 신청은 fetch가 아니라 숨겨진 iframe으로 실제 폼 전송을 해요.
@@ -820,7 +882,7 @@
       submitBtn.textContent = '참여 의사 남기기';
       setMsg('참여 의사가 표시됐어요. 곧 만나요! 🎉', 'ok');
       form.reset();
-      refreshList();
+      refreshCounts();
     });
     // 여기서는 preventDefault를 하지 않아요 — 브라우저가 실제로 폼을 제출하도록 둡니다.
   });
@@ -875,6 +937,41 @@
       refreshMessages();
     });
   });
+})();
+
+(function(){
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length){
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var sections = navLinks.map(function(link){
+    return document.getElementById(link.getAttribute('href').slice(1));
+  });
+  if ('IntersectionObserver' in window && sections.length){
+    var navObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var idx = sections.indexOf(entry.target);
+        if (idx === -1) return;
+        if (entry.isIntersecting){
+          navLinks.forEach(function(l){ l.classList.remove('active'); });
+          navLinks[idx].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-50% 0px -45% 0px' });
+    sections.forEach(function(sec){ if (sec) navObserver.observe(sec); });
+  }
 })();
 </script>
 </body>
