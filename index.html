@@ -141,10 +141,42 @@
     background:var(--forest-tint);
     color:var(--forest);
   }
+  .nav-links a.active{
+    background:var(--forest-tint);
+    color:var(--forest);
+    font-weight:700;
+  }
 
   main{display:block;}
   section{
     padding-block:56px;
+  }
+  section.alt-bg{
+    background:var(--paper-alt);
+  }
+  .wave-divider{
+    line-height:0;
+    background:var(--paper);
+  }
+  .wave-divider svg{
+    display:block;
+    width:100%;
+    height:36px;
+  }
+  .wave-divider path{
+    fill:var(--paper-alt);
+  }
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:none;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
   }
   .section-head{
     display:flex;
@@ -542,7 +574,7 @@
         <p class="rsvp-live-count">🎉 지금까지 <span class="count-num" id="hero-count-num">0</span>명의 선배가 함께하기로 했어요</p>
       </div>
 
-      <div class="invite-letter">
+      <div class="invite-letter reveal">
         <p class="salute">선배님, 잘 지내셨나요?</p>
         <p>20년 전 첫 회의부터 지금까지, 청소년운영위원회 Must Have는 선배님들이 남긴 발자국 위에서 자라왔습니다.</p>
         <p>올해로 스무 살이 된 Must Have가 그 시간을 함께 만든 선배님과 지도자 선생님들을 집으로 초대합니다. 그때의 이야기, 지금의 이야기, 그리고 앞으로의 이야기를 후배들과 함께 나눠주세요.</p>
@@ -584,15 +616,19 @@
     </div>
   </section>
 
-  <section id="schedule">
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,32 C240,64 480,0 720,20 C960,40 1200,64 1440,28 L1440,60 L0,60 Z"></path></svg>
+  </div>
+
+  <section id="schedule" class="alt-bg">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">당일 타임테이블</span>
         <h2>2026.10.31(토) · 산울림청소년센터</h2>
         <p class="lede">개회부터 폐회까지, 알차게 채운 2시간이에요.</p>
       </div>
 
-      <ol class="timeline">
+      <ol class="timeline reveal">
         <li class="t-item"><span class="t-time">13:30</span><span class="t-dot"><span></span></span>
           <div class="t-body"><div class="t-title">접수 &amp; 추억 전시</div><div class="t-desc">명찰 수령(활동연도별 색 스티커), 기수별 사진 전시, 포토월</div></div></li>
         <li class="t-item"><span class="t-time">14:00</span><span class="t-dot"><span></span></span>
@@ -613,13 +649,13 @@
 
   <section id="speaker-recruit">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">연사 모집</span>
         <h2>당신의 성장 이야기를 들려주세요</h2>
         <p class="lede">Must Have 활동이 지금의 나에게 남긴 것을 10분 발표로 나눠주실 분을 찾고 있어요. 서로 다른 시기를 겪은 세 분이 모이면, 그 경험이 얼마나 다양한 방향으로 이어지는지 보여드릴 수 있어요.</p>
       </div>
 
-      <div class="recruit-row">
+      <div class="recruit-row reveal">
         <div class="recruit-guide">
           <p class="gf-title">발표는 이렇게 구성돼요 (10분)</p>
           <div class="speaker-steps">
@@ -638,15 +674,15 @@
     </div>
   </section>
 
-  <section id="rsvp">
+  <section id="rsvp" class="alt-bg">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">참여 표시</span>
         <h2>함께하실 선배님, 이름을 남겨주세요</h2>
         <p class="lede">아래에 이름을 남기면 참여 의사가 이 페이지에 바로 표시돼요. 다른 선후배님들도 함께 볼 수 있어요.</p>
       </div>
 
-      <div class="rsvp-layout">
+      <div class="rsvp-layout reveal">
         <div class="rsvp-card">
           <form id="rsvp-form" method="POST" target="rsvp-target" novalidate>
             <input type="hidden" name="type" value="rsvp">
@@ -694,13 +730,13 @@
 
   <section id="messages">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">응원 한마디</span>
         <h2>당신의 한마디를 더해주세요</h2>
         <p class="lede">20주년을 맞은 청소년운영위원회 Must Have와, 그 시간을 함께한 모든 분들께 축하와 응원의 마음을 남겨주세요.</p>
       </div>
 
-      <div class="rsvp-layout">
+      <div class="rsvp-layout reveal">
         <div class="rsvp-card">
           <form id="msg-form" method="POST" target="msg-target" novalidate>
             <input type="hidden" name="type" value="message">
@@ -878,6 +914,41 @@
       refreshMessages();
     });
   });
+})();
+
+(function(){
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length){
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var sections = navLinks.map(function(link){
+    return document.getElementById(link.getAttribute('href').slice(1));
+  });
+  if ('IntersectionObserver' in window && sections.length){
+    var navObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var idx = sections.indexOf(entry.target);
+        if (idx === -1) return;
+        if (entry.isIntersecting){
+          navLinks.forEach(function(l){ l.classList.remove('active'); });
+          navLinks[idx].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-50% 0px -45% 0px' });
+    sections.forEach(function(sec){ if (sec) navObserver.observe(sec); });
+  }
 })();
 </script>
 </body>
