@@ -543,6 +543,25 @@
     flex-direction:column;
     gap:6px;
   }
+  .footer-logos{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:10px;
+  }
+  .logo-chip{
+    display:inline-flex;
+    align-items:center;
+    background:#fff;
+    border-radius:12px;
+    padding:8px 14px;
+  }
+  .logo-chip img{
+    height:26px;
+    width:auto;
+    display:block;
+  }
   footer .foot-brand{
     font-family:'Gowun Batang',serif;
     color:var(--ink);
@@ -764,6 +783,10 @@
 </main>
 
 <footer>
+  <div class="footer-logos">
+    <span class="logo-chip"><img src="assets/sanullim-logo.png" alt="산울림청소년센터" loading="lazy"></span>
+    <span class="logo-chip"><img src="assets/musthave-logo.png" alt="청소년운영위원회 Must Have" loading="lazy"></span>
+  </div>
   <div class="foot-brand">청소년운영위원회 Must Have 20주년 홈커밍데이</div>
   <div>문의 김민선 청소년지도사 · 032-344-4480</div>
   <div>제20기 Must Have 드림</div>
