@@ -258,14 +258,11 @@
   .fact .ico{font-size:1.15rem;line-height:1.5;}
   .fact .label{font-size:0.78rem;color:var(--ink-soft);letter-spacing:0.04em;}
   .fact .val{font-weight:700;font-family:'Gowun Batang',serif;font-size:1rem;}
-  .map-link{
-    display:inline-block;
-    margin-top:4px;
-    font-family:'Gowun Dodum','Malgun Gothic',sans-serif;
-    font-weight:400;
-    font-size:0.8rem;
-    color:var(--forest);
-    text-decoration:underline;
+  .directions-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:10px;
   }
   .placeholder{
     color:var(--ink-soft);
@@ -664,7 +661,7 @@
           </div>
           <div class="fact">
             <span class="ico">📍</span>
-            <div><div class="label">장소</div><div class="val">산울림청소년센터 1층 맥놀이판<br><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%EC%82%B0%EC%9A%B8%EB%A6%BC%EC%B2%AD%EC%86%8C%EB%85%84%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">🗺️ 경기도 부천시 역곡로 149-65 · 지도 보기</a></div></div>
+            <div><div class="label">장소</div><div class="val">산울림청소년센터 1층 맥놀이판</div></div>
           </div>
           <div class="fact">
             <span class="ico">👥</span>
@@ -714,6 +711,10 @@
         <span class="eyebrow">당일 타임테이블</span>
         <h2>2026.10.31(토) · 산울림청소년센터 1층 맥놀이판</h2>
         <p class="lede">개회부터 폐회까지, 알차게 채운 2시간이에요.</p>
+        <div class="directions-row">
+          <a class="btn btn-ghost btn-sm" href="https://map.naver.com/p/search/%EC%82%B0%EC%9A%B8%EB%A6%BC%EC%B2%AD%EC%86%8C%EB%85%84%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버지도 길찾기</a>
+          <a class="btn btn-ghost btn-sm" href="https://map.kakao.com/link/search/%EC%82%B0%EC%9A%B8%EB%A6%BC%EC%B2%AD%EC%86%8C%EB%85%84%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">카카오맵 길찾기</a>
+        </div>
       </div>
 
       <ol class="timeline reveal">
