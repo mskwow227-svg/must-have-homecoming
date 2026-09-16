@@ -494,12 +494,33 @@
     font-size:1.05rem;
     margin-bottom:12px;
   }
-  .rsvp-list-frame{
-    width:100%;
-    min-height:380px;
-    border:0;
+  .msg-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    min-height:80px;
+  }
+  .msg-card{
+    background:var(--paper-alt);
+    border:1px solid var(--line);
     border-radius:var(--radius-sm);
-    background:var(--paper);
+    padding:12px 14px;
+  }
+  .msg-card.empty{
+    text-align:center;
+    color:var(--ink-soft);
+  }
+  .msg-text{
+    margin:0 0 6px;
+    font-size:0.92rem;
+    color:var(--ink);
+  }
+  .msg-name{
+    margin:0;
+    font-size:0.8rem;
+    color:var(--gold);
+    font-weight:700;
+    text-align:right;
   }
   .rsvp-live-count{
     text-align:center;
@@ -806,7 +827,7 @@
 
         <div class="rsvp-card">
           <div class="rsvp-count-label">먼저 남겨주신 마음들</div>
-          <iframe id="msg-list-frame" class="rsvp-list-frame" title="응원 메시지 명단" loading="lazy" hidden></iframe>
+          <div id="msg-list" class="msg-list"></div>
         </div>
       </div>
     </div>
@@ -925,17 +946,45 @@
   var msgMsgEl = document.getElementById('msg-msg');
   var msgSubmitBtn = document.getElementById('msg-submit');
   var msgTargetFrame = document.getElementById('msg-target');
-  var msgListFrame = document.getElementById('msg-list-frame');
 
   function setMsgMsg(text, kind){
     msgMsgEl.textContent = text;
     msgMsgEl.className = 'form-msg' + (kind ? ' ' + kind : '');
   }
 
+  window.__mhMessages = function(list){
+    var container = document.getElementById('msg-list');
+    if (!container) return;
+    container.innerHTML = '';
+    if (!list || !list.length){
+      var empty = document.createElement('div');
+      empty.className = 'msg-card empty';
+      empty.textContent = '첫 번째 응원의 글을 남겨주세요 💌';
+      container.appendChild(empty);
+      return;
+    }
+    list.forEach(function(item){
+      var card = document.createElement('div');
+      card.className = 'msg-card';
+      var p = document.createElement('p');
+      p.className = 'msg-text';
+      p.textContent = item.message;
+      var name = document.createElement('p');
+      name.className = 'msg-name';
+      name.textContent = '- ' + item.name;
+      card.appendChild(p);
+      card.appendChild(name);
+      container.appendChild(card);
+    });
+  };
+
   function refreshMessages(){
     if (!RSVP_ENDPOINT) return;
-    msgListFrame.hidden = false;
-    msgListFrame.src = RSVP_ENDPOINT + '?type=message&t=' + Date.now();
+    var s = document.createElement('script');
+    s.src = RSVP_ENDPOINT + '?type=message&t=' + Date.now();
+    s.onload = function(){ s.remove(); };
+    s.onerror = function(){ s.remove(); };
+    document.body.appendChild(s);
   }
 
   if (RSVP_ENDPOINT){
