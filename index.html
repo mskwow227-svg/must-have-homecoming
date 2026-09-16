@@ -240,16 +240,6 @@
     background:var(--forest-tint);
     border-radius:var(--radius-md);
   }
-  .photo-callout{
-    display:flex;
-    flex-direction:column;
-    gap:4px;
-    padding:14px 18px;
-    background:var(--gold-soft);
-    border-radius:var(--radius-md);
-  }
-  .photo-callout p{margin:0;font-weight:700;}
-  .photo-callout p.hint{font-weight:400;}
   .fact{
     display:flex;
     gap:10px;
@@ -258,12 +248,6 @@
   .fact .ico{font-size:1.15rem;line-height:1.5;}
   .fact .label{font-size:0.78rem;color:var(--ink-soft);letter-spacing:0.04em;}
   .fact .val{font-weight:700;font-family:'Gowun Batang',serif;font-size:1rem;}
-  .directions-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:10px;
-  }
   .placeholder{
     color:var(--ink-soft);
     font-style:italic;
@@ -681,21 +665,17 @@
           </div>
         </div>
 
-        <div class="photo-callout">
-          <p>📸 그 시절 사진을 갖고 계신가요?</p>
-          <p class="hint">아래 오픈채팅방에 편하게 올려주시면 추억 사진전에 전시할게요.</p>
-          <a class="btn btn-primary btn-sm" href="https://open.kakao.com/o/gSC2OTNi" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:6px;">💬 추억 사진 올리러 가기</a>
-        </div>
-
         <div class="cta-row">
           <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe8JG0N3tkGtmBXsE7ZbnTYEeKViJvJ20QWxyTG1VPRyI-r6Q/viewform" target="_blank" rel="noopener">신청서 작성하기</a>
+          <a class="btn btn-primary" href="https://open.kakao.com/o/gSC2OTNi" target="_blank" rel="noopener">📸 추억 사진 올리러 가기</a>
           <div class="cta-secondary">
             <a class="btn btn-ghost btn-sm" href="#schedule">일정 먼저 보기</a>
             <a class="btn btn-ghost btn-sm" id="calendar-btn" href="#" target="_blank" rel="noopener">🗓️ 캘린더</a>
             <button class="btn btn-ghost btn-sm" type="button" id="share-btn">🔗 공유</button>
+            <a class="btn btn-ghost btn-sm" href="https://map.kakao.com/link/search/%EC%82%B0%EC%9A%B8%EB%A6%BC%EC%B2%AD%EC%86%8C%EB%85%84%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">🧭 길찾기</a>
           </div>
         </div>
-        <p class="hint">같은 기수 친구와 함께 오시면 더 반가워요!</p>
+        <p class="hint">📸 그 시절 사진은 오픈채팅방에 편하게 올려주세요 · 같은 기수 친구와 함께 오시면 더 반가워요!</p>
         <p class="signoff">제20기 Must Have 드림</p>
       </div>
     </div>
@@ -711,10 +691,6 @@
         <span class="eyebrow">당일 타임테이블</span>
         <h2>2026.10.31(토) · 산울림청소년센터 1층 맥놀이판</h2>
         <p class="lede">개회부터 폐회까지, 알차게 채운 2시간이에요.</p>
-        <div class="directions-row">
-          <a class="btn btn-ghost btn-sm" href="https://map.naver.com/p/search/%EC%82%B0%EC%9A%B8%EB%A6%BC%EC%B2%AD%EC%86%8C%EB%85%84%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버지도 길찾기</a>
-          <a class="btn btn-ghost btn-sm" href="https://map.kakao.com/link/search/%EC%82%B0%EC%9A%B8%EB%A6%BC%EC%B2%AD%EC%86%8C%EB%85%84%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">카카오맵 길찾기</a>
-        </div>
       </div>
 
       <ol class="timeline reveal">
