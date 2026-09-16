@@ -616,10 +616,8 @@
     <nav class="nav-links">
       <a href="#invite">초대장</a>
       <a href="#schedule">일정</a>
-      <a href="#speaker-recruit">연사 모집</a>
+      <a href="#speaker-recruit">신청서</a>
       <a href="#rsvp">참여 표시</a>
-      <a href="#apply">신청서 접수</a>
-      <a href="#messages">응원 한마디</a>
     </nav>
   </div>
 </div>
@@ -711,14 +709,14 @@
   <section id="speaker-recruit">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">연사 모집</span>
-        <h2>당신의 성장 이야기를 들려주세요</h2>
-        <p class="lede">Must Have 활동이 지금의 나에게 남긴 것을 10분 발표로 나눠주실 분을 찾고 있어요. 서로 다른 시기를 겪은 세 분이 모이면, 그 경험이 얼마나 다양한 방향으로 이어지는지 보여드릴 수 있어요.</p>
+        <span class="eyebrow">신청서</span>
+        <h2>연사 지원 · 참가 신청, 하나의 신청서로</h2>
+        <p class="lede">정확한 좌석·다과 준비를 위한 참가 신청과, 성장 이야기를 나눠주실 연사 지원을 하나의 신청서에서 함께 받아요. 참석만 하셔도 좋고, 연사로 지원하고 싶으시면 신청서 안에서 표시해주세요.</p>
       </div>
 
       <div class="recruit-row reveal">
         <div class="recruit-guide">
-          <p class="gf-title">발표는 이렇게 구성돼요 (10분)</p>
+          <p class="gf-title">연사로 지원하시면 이렇게 구성돼요 (10분)</p>
           <div class="speaker-steps">
             <div class="speaker-step"><span class="n">1</span><span class="t">Must Have에 들어가기 전의 나 (2분)</span></div>
             <div class="speaker-step"><span class="n">2</span><span class="t">활동 중 가장 결정적이었던 장면 (3분)</span></div>
@@ -728,8 +726,9 @@
         </div>
 
         <div class="gform-cta">
-          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScHQWAJDpWtW4RBaH2wVuLW6vTX9nDMnHQMQYU1k1FBeU_6Vg/viewform" target="_blank" rel="noopener">📋 연사 지원서 작성하기</a>
-          <p class="hint">새 탭에서 구글폼이 열려요. 지금 바로 지원하고 싶다면 전화나 문자도 좋아요<br><strong>김민선 청소년지도사 · 032-344-4480</strong></p>
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScHQWAJDpWtW4RBaH2wVuLW6vTX9nDMnHQMQYU1k1FBeU_6Vg/viewform" target="_blank" rel="noopener">📝 신청서 작성하기</a>
+          <p class="hint">마감 <span class="placeholder">추후 안내</span></p>
+          <p class="hint">새 탭에서 구글폼이 열려요. 지금 바로 신청하고 싶다면 전화나 문자도 좋아요<br><strong>김민선 청소년지도사 · 032-344-4480</strong></p>
         </div>
       </div>
     </div>
@@ -757,19 +756,17 @@
                 <input id="f-cohort" name="cohort" type="text" maxlength="20" placeholder="예: 5기 (2011)" required>
               </div>
             </div>
-            <div class="field-row">
-              <div class="field">
-                <label for="f-guests">동반 인원</label>
-                <input id="f-guests" name="guests" type="number" min="0" max="6" value="0">
-              </div>
-              <div class="field">
-                <label for="f-note">한마디 (선택)</label>
-                <input id="f-note" name="note" type="text" maxlength="60" placeholder="오랜만이에요!">
-              </div>
+            <div class="field">
+              <label for="f-guests">동반 인원</label>
+              <input id="f-guests" name="guests" type="number" min="0" max="6" value="0">
+            </div>
+            <div class="field">
+              <label for="f-note">응원 메시지 (선택)</label>
+              <textarea id="f-note" name="note" maxlength="150" placeholder="20년 동안 자라온 Must Have에게, 그리고 함께할 후배들에게 한마디 남겨주세요."></textarea>
             </div>
             <button class="btn btn-primary" type="submit" id="rsvp-submit" style="width:100%;">참여 의사 남기기</button>
             <p class="form-msg" id="rsvp-msg" role="status" aria-live="polite"></p>
-            <p class="hint">남기신 성함은 이 페이지에 공개되지 않아요. 준비팀만 확인합니다.</p>
+            <p class="hint">이름은 기본적으로 공개되지 않아요. 응원 메시지를 남기시면 메시지와 함께 이름이 표시돼요.</p>
           </form>
           <iframe name="rsvp-target" id="rsvp-target" title="참여 신청 전송" hidden></iframe>
         </div>
@@ -777,61 +774,14 @@
         <div class="rsvp-card">
           <div class="rsvp-count-label">지금까지 함께하기로 한 분들</div>
           <p class="rsvp-count-big"><span class="count-num" id="rsvp-count-num">0</span>명</p>
-          <p class="hint">이름은 공개되지 않고 숫자만 표시돼요.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="apply" class="alt-bg">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">신청서 접수</span>
-        <h2>정확한 좌석·다과를 위한 공식 신청</h2>
-        <p class="lede">위 참여 표시는 참석 의사를 가볍게 남기는 것이고, 좌석과 다과를 정확히 준비하려면 아래 공식 신청서를 별도로 작성해주셔야 해요. 두 가지 모두 부탁드려요!</p>
-      </div>
-
-      <div class="gform-cta reveal">
-        <a class="btn btn-primary" href="#" id="apply-form-link" target="_blank" rel="noopener">📝 신청서 접수하기</a>
-        <p class="hint">마감 <span class="placeholder">추후 안내</span></p>
-        <p class="hint">☎️ 문의 김민선 청소년지도사 · 032-344-4480</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="messages">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">응원 한마디</span>
-        <h2>당신의 한마디를 더해주세요</h2>
-        <p class="lede">20주년을 맞은 청소년운영위원회 Must Have와, 그 시간을 함께한 모든 분들께 축하와 응원의 마음을 남겨주세요.</p>
-      </div>
-
-      <div class="rsvp-layout reveal">
-        <div class="rsvp-card">
-          <form id="msg-form" method="POST" target="msg-target" novalidate>
-            <input type="hidden" name="type" value="message">
-            <div class="field">
-              <label for="m-name">이름 *</label>
-              <input id="m-name" name="name" type="text" maxlength="20" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="m-message">응원 메시지 *</label>
-              <textarea id="m-message" name="message" maxlength="200" placeholder="20년 동안 자라온 Must Have에게, 그리고 함께할 후배들에게 한마디 남겨주세요." required></textarea>
-            </div>
-            <button class="btn btn-primary" type="submit" id="msg-submit" style="width:100%;">응원 메시지 남기기</button>
-            <p class="form-msg" id="msg-msg" role="status" aria-live="polite"></p>
-          </form>
-          <iframe name="msg-target" id="msg-target" title="응원 메시지 전송" hidden></iframe>
-        </div>
-
-        <div class="rsvp-card">
-          <div class="rsvp-count-label">먼저 남겨주신 마음들</div>
+          <p class="hint">응원 메시지를 남겨주신 분들</p>
           <div id="msg-list" class="msg-list"></div>
         </div>
       </div>
     </div>
   </section>
+
+
 </main>
 
 <footer>
@@ -877,9 +827,45 @@
     document.body.appendChild(s);
   }
 
+  window.__mhMessages = function(list){
+    var container = document.getElementById('msg-list');
+    if (!container) return;
+    container.innerHTML = '';
+    if (!list || !list.length){
+      var empty = document.createElement('div');
+      empty.className = 'msg-card empty';
+      empty.textContent = '첫 번째 응원의 글을 남겨주세요 💌';
+      container.appendChild(empty);
+      return;
+    }
+    list.forEach(function(item){
+      var card = document.createElement('div');
+      card.className = 'msg-card';
+      var p = document.createElement('p');
+      p.className = 'msg-text';
+      p.textContent = item.message;
+      var name = document.createElement('p');
+      name.className = 'msg-name';
+      name.textContent = '- ' + item.name;
+      card.appendChild(p);
+      card.appendChild(name);
+      container.appendChild(card);
+    });
+  };
+
+  function refreshMessages(){
+    if (!RSVP_ENDPOINT) return;
+    var s = document.createElement('script');
+    s.src = RSVP_ENDPOINT + '?type=message&t=' + Date.now();
+    s.onload = function(){ s.remove(); };
+    s.onerror = function(){ s.remove(); };
+    document.body.appendChild(s);
+  }
+
   if (RSVP_ENDPOINT){
     form.action = RSVP_ENDPOINT;
     refreshCounts();
+    refreshMessages();
   }
 
   var calendarBtn = document.getElementById('calendar-btn');
@@ -938,87 +924,9 @@
       setMsg('참여 의사가 표시됐어요. 곧 만나요! 🎉', 'ok');
       form.reset();
       refreshCounts();
-    });
-    // 여기서는 preventDefault를 하지 않아요 — 브라우저가 실제로 폼을 제출하도록 둡니다.
-  });
-
-  var msgForm = document.getElementById('msg-form');
-  var msgMsgEl = document.getElementById('msg-msg');
-  var msgSubmitBtn = document.getElementById('msg-submit');
-  var msgTargetFrame = document.getElementById('msg-target');
-
-  function setMsgMsg(text, kind){
-    msgMsgEl.textContent = text;
-    msgMsgEl.className = 'form-msg' + (kind ? ' ' + kind : '');
-  }
-
-  window.__mhMessages = function(list){
-    var container = document.getElementById('msg-list');
-    if (!container) return;
-    container.innerHTML = '';
-    if (!list || !list.length){
-      var empty = document.createElement('div');
-      empty.className = 'msg-card empty';
-      empty.textContent = '첫 번째 응원의 글을 남겨주세요 💌';
-      container.appendChild(empty);
-      return;
-    }
-    list.forEach(function(item){
-      var card = document.createElement('div');
-      card.className = 'msg-card';
-      var p = document.createElement('p');
-      p.className = 'msg-text';
-      p.textContent = item.message;
-      var name = document.createElement('p');
-      name.className = 'msg-name';
-      name.textContent = '- ' + item.name;
-      card.appendChild(p);
-      card.appendChild(name);
-      container.appendChild(card);
-    });
-  };
-
-  function refreshMessages(){
-    if (!RSVP_ENDPOINT) return;
-    var s = document.createElement('script');
-    s.src = RSVP_ENDPOINT + '?type=message&t=' + Date.now();
-    s.onload = function(){ s.remove(); };
-    s.onerror = function(){ s.remove(); };
-    document.body.appendChild(s);
-  }
-
-  if (RSVP_ENDPOINT){
-    msgForm.action = RSVP_ENDPOINT;
-    refreshMessages();
-  }
-
-  msgForm.addEventListener('submit', function(ev){
-    var name = document.getElementById('m-name').value.trim();
-    var message = document.getElementById('m-message').value.trim();
-
-    if (!RSVP_ENDPOINT){
-      ev.preventDefault();
-      setMsgMsg('지금은 메시지 저장이 준비 중이에요.', 'err');
-      return;
-    }
-    if (!name || !message){
-      ev.preventDefault();
-      setMsgMsg('이름과 메시지를 입력해주세요.', 'err');
-      return;
-    }
-
-    msgSubmitBtn.disabled = true;
-    msgSubmitBtn.textContent = '저장 중...';
-    setMsgMsg('', '');
-
-    msgTargetFrame.addEventListener('load', function onLoad(){
-      msgTargetFrame.removeEventListener('load', onLoad);
-      msgSubmitBtn.disabled = false;
-      msgSubmitBtn.textContent = '응원 메시지 남기기';
-      setMsgMsg('마음이 잘 전달됐어요. 고맙습니다 💌', 'ok');
-      msgForm.reset();
       refreshMessages();
     });
+    // 여기서는 preventDefault를 하지 않아요 — 브라우저가 실제로 폼을 제출하도록 둡니다.
   });
 })();
 
