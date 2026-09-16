@@ -447,13 +447,10 @@
     font-weight:700;
     color:var(--ink-soft);
   }
-  .count-frame{
-    display:inline-block;
-    width:42px;
-    height:22px;
-    vertical-align:middle;
-    border:0;
-    background:transparent;
+  .count-num{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    color:var(--forest);
   }
   .rsvp-count-big{
     font-family:'Gowun Batang',serif;
@@ -463,13 +460,6 @@
     display:flex;
     align-items:center;
     gap:4px;
-  }
-  .count-frame-lg{
-    display:inline-block;
-    width:90px;
-    height:44px;
-    border:0;
-    background:transparent;
   }
   .field{
     display:flex;
@@ -555,7 +545,7 @@
       <div>
         <span class="eyebrow">청소년운영위원회 &lsquo;Must Have&rsquo; 20주년</span>
         <h1>다시, 우리 Must Have로</h1>
-        <p class="rsvp-live-count">🎉 지금까지 <iframe id="hero-count-frame" class="count-frame" title="참여 확정 인원" loading="lazy"></iframe>명의 선배가 함께하기로 했어요</p>
+        <p class="rsvp-live-count">🎉 지금까지 <span class="count-num" id="hero-count-num">0</span>명의 선배가 함께하기로 했어요</p>
       </div>
 
       <div class="invite-letter">
@@ -713,7 +703,7 @@
 
         <div class="rsvp-card">
           <div class="rsvp-count-label">지금까지 함께하기로 한 분들</div>
-          <p class="rsvp-count-big"><iframe id="rsvp-count-frame" class="count-frame-lg" title="참여 확정 인원" loading="lazy"></iframe>명</p>
+          <p class="rsvp-count-big"><span class="count-num" id="rsvp-count-num">0</span>명</p>
           <p class="hint">이름은 공개되지 않고 숫자만 표시돼요.</p>
         </div>
       </div>
@@ -769,19 +759,26 @@
   var msgEl = document.getElementById('rsvp-msg');
   var submitBtn = document.getElementById('rsvp-submit');
   var targetFrame = document.getElementById('rsvp-target');
-  var heroCountFrame = document.getElementById('hero-count-frame');
-  var rsvpCountFrame = document.getElementById('rsvp-count-frame');
 
   function setMsg(text, kind){
     msgEl.textContent = text;
     msgEl.className = 'form-msg' + (kind ? ' ' + kind : '');
   }
 
+  window.__mhCount = function(n){
+    var a = document.getElementById('hero-count-num');
+    var b = document.getElementById('rsvp-count-num');
+    if (a) a.textContent = n;
+    if (b) b.textContent = n;
+  };
+
   function refreshCounts(){
     if (!RSVP_ENDPOINT) return;
-    var t = Date.now();
-    heroCountFrame.src = RSVP_ENDPOINT + '?type=count&size=sm&t=' + t;
-    rsvpCountFrame.src = RSVP_ENDPOINT + '?type=count&size=lg&t=' + t;
+    var s = document.createElement('script');
+    s.src = RSVP_ENDPOINT + '?type=count&t=' + Date.now();
+    s.onload = function(){ s.remove(); };
+    s.onerror = function(){ s.remove(); };
+    document.body.appendChild(s);
   }
 
   if (RSVP_ENDPOINT){
