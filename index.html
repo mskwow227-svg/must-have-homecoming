@@ -449,8 +449,8 @@
   }
   .count-frame{
     display:inline-block;
-    width:32px;
-    height:20px;
+    width:42px;
+    height:22px;
     vertical-align:middle;
     border:0;
     background:transparent;
@@ -466,7 +466,7 @@
   }
   .count-frame-lg{
     display:inline-block;
-    width:70px;
+    width:90px;
     height:44px;
     border:0;
     background:transparent;
@@ -779,9 +779,9 @@
 
   function refreshCounts(){
     if (!RSVP_ENDPOINT) return;
-    var src = RSVP_ENDPOINT + '?type=count&t=' + Date.now();
-    heroCountFrame.src = src;
-    rsvpCountFrame.src = src;
+    var t = Date.now();
+    heroCountFrame.src = RSVP_ENDPOINT + '?type=count&size=sm&t=' + t;
+    rsvpCountFrame.src = RSVP_ENDPOINT + '?type=count&size=lg&t=' + t;
   }
 
   if (RSVP_ENDPOINT){
