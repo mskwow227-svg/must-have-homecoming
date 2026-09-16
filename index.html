@@ -68,6 +68,8 @@
     line-height:1.7;
     padding-inline:0;
     margin:0;
+    word-break:keep-all;
+    overflow-wrap:break-word;
   }
   @media (prefers-reduced-motion: no-preference){
     html{scroll-behavior:smooth;}
@@ -127,6 +129,7 @@
     gap:4px;
     overflow-x:auto;
     scrollbar-width:none;
+    min-width:0;
   }
   .nav-links::-webkit-scrollbar{display:none;}
   .nav-links a{
@@ -270,6 +273,19 @@
     gap:14px;
     margin-top:6px;
   }
+  .cta-secondary{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:10px;
+  }
+  .btn-sm{
+    padding:9px 16px;
+    font-size:0.85rem;
+  }
+  @media (max-width:480px){
+    .cta-row .btn-primary{width:100%;}
+  }
   .btn{
     display:inline-flex;
     align-items:center;
@@ -398,6 +414,7 @@
     background:var(--forest-tint);
     border-radius:var(--radius-md);
     padding:18px 20px;
+    min-width:0;
   }
   .recruit-guide p.gf-title{
     font-family:'Gowun Batang',serif;
@@ -432,6 +449,7 @@
     justify-content:center;
     gap:12px;
     padding:24px;
+    min-width:0;
     background:var(--card);
     border:1px solid var(--line);
     border-radius:var(--radius-lg);
@@ -453,6 +471,7 @@
     border-radius:var(--radius-lg);
     padding:24px;
     box-shadow:var(--shadow);
+    min-width:0;
   }
   .rsvp-count-label{
     font-family:'Gowun Batang',serif;
@@ -492,6 +511,7 @@
     flex-direction:column;
     gap:6px;
     margin-bottom:14px;
+    min-width:0;
   }
   .field label{
     font-size:0.84rem;
@@ -499,6 +519,7 @@
     color:var(--ink-soft);
   }
   .field input, .field textarea{
+    width:100%;
     font-family:inherit;
     font-size:0.96rem;
     padding:11px 13px;
@@ -625,9 +646,11 @@
 
         <div class="cta-row">
           <a class="btn btn-primary" href="#rsvp">참여 의사 표시하기</a>
-          <a class="btn btn-ghost" href="#schedule">일정 먼저 보기</a>
-          <a class="btn btn-ghost" id="calendar-btn" href="#" target="_blank" rel="noopener">🗓️ 캘린더에 추가</a>
-          <button class="btn btn-ghost" type="button" id="share-btn">🔗 공유하기</button>
+        </div>
+        <div class="cta-secondary">
+          <a class="btn btn-ghost btn-sm" href="#schedule">일정 먼저 보기</a>
+          <a class="btn btn-ghost btn-sm" id="calendar-btn" href="#" target="_blank" rel="noopener">🗓️ 캘린더</a>
+          <button class="btn btn-ghost btn-sm" type="button" id="share-btn">🔗 공유</button>
         </div>
         <p class="hint">같은 기수 친구와 함께 오시면 더 반가워요!</p>
         <p class="signoff">제20기 Must Have 드림</p>
