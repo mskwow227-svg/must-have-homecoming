@@ -117,13 +117,13 @@
   .brand{
     font-family:'Gowun Batang',serif;
     font-weight:700;
-    font-size:1.05rem;
+    font-size:0.82rem;
+    color:var(--ink-soft);
     display:flex;
     align-items:baseline;
     gap:6px;
     white-space:nowrap;
   }
-  .brand span{color:var(--gold);}
   .nav-links{
     display:flex;
     gap:4px;
@@ -571,14 +571,7 @@
     gap:12px;
     margin-bottom:10px;
   }
-  .logo-chip{
-    display:inline-flex;
-    align-items:center;
-    background:#fff;
-    border-radius:12px;
-    padding:8px 14px;
-  }
-  .logo-chip img{
+  .footer-logos img{
     height:26px;
     width:auto;
     display:block;
@@ -594,7 +587,7 @@
 
 <div class="nav">
   <div class="nav-inner">
-    <div class="brand">Must Have<span>20</span></div>
+    <div class="brand">청소년운영위원회 홈커밍데이</div>
     <nav class="nav-links">
       <a href="#invite">초대장</a>
       <a href="#schedule">일정</a>
@@ -807,8 +800,11 @@
 
 <footer>
   <div class="footer-logos">
-    <span class="logo-chip"><img src="assets/sanullim-logo.png" alt="산울림청소년센터" loading="lazy"></span>
-    <span class="logo-chip"><img src="assets/musthave-logo.png" alt="청소년운영위원회 Must Have" loading="lazy"></span>
+    <picture>
+      <source srcset="assets/sanullim-logo-white.png" media="(prefers-color-scheme: dark)">
+      <img src="assets/sanullim-logo.png" alt="산울림청소년센터" loading="lazy">
+    </picture>
+    <img src="assets/musthave-logo.png" alt="청소년운영위원회 Must Have" loading="lazy">
   </div>
   <div class="foot-brand">청소년운영위원회 Must Have 20주년 홈커밍데이</div>
   <div>문의 김민선 청소년지도사 · 032-344-4480</div>
