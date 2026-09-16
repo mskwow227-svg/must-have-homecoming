@@ -397,33 +397,16 @@
     display:flex;align-items:center;justify-content:center;
   }
   .speaker-step .t{color:var(--ink-soft);}
-  .gform-embed{
-    border:1px solid var(--line);
-    border-radius:var(--radius-lg);
-    overflow:hidden;
-    background:var(--card);
-    box-shadow:var(--shadow);
-  }
-  .gform-embed iframe{
-    width:100%;
-    min-height:1100px;
-    border:0;
-    display:block;
-  }
-  .gform-placeholder{
-    padding:44px 24px;
-    text-align:center;
-    color:var(--ink-soft);
+  .gform-cta{
     display:flex;
     flex-direction:column;
-    align-items:center;
-    gap:10px;
-  }
-  .gform-placeholder .gf-title{
-    font-family:'Gowun Batang',serif;
-    font-weight:700;
-    font-size:1.1rem;
-    color:var(--ink);
+    align-items:flex-start;
+    gap:12px;
+    padding:24px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow);
   }
 
   /* ---------- rsvp ---------- */
@@ -657,12 +640,9 @@
         </div>
       </div>
 
-      <div class="gform-embed" id="gform-embed" data-form-url="https://docs.google.com/forms/d/e/1FAIpQLScHQWAJDpWtW4RBaH2wVuLW6vTX9nDMnHQMQYU1k1FBeU_6Vg/viewform?embedded=true">
-        <div class="gform-placeholder">
-          <p class="gf-title">📋 지원서, 곧 이 자리에 연결됩니다</p>
-          <p>지금 바로 지원하고 싶다면 아래로 문자나 전화 주세요.</p>
-          <p><strong>김민선 청소년지도사</strong> · 032-344-4480</p>
-        </div>
+      <div class="gform-cta">
+        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScHQWAJDpWtW4RBaH2wVuLW6vTX9nDMnHQMQYU1k1FBeU_6Vg/viewform" target="_blank" rel="noopener">📋 연사 지원서 작성하기</a>
+        <p class="hint">새 탭에서 구글폼이 열려요. 지금 바로 지원하고 싶다면 전화나 문자도 좋아요 — <strong>김민선 청소년지도사 · 032-344-4480</strong></p>
       </div>
     </div>
   </section>
@@ -779,12 +759,6 @@
     if (!RSVP_ENDPOINT) return;
     listFrame.hidden = false;
     listFrame.src = RSVP_ENDPOINT + '?type=rsvp&t=' + Date.now();
-  }
-
-  var gformWrap = document.getElementById('gform-embed');
-  var gformUrl = gformWrap ? gformWrap.getAttribute('data-form-url') : '';
-  if (gformWrap && gformUrl){
-    gformWrap.innerHTML = '<iframe src="' + gformUrl + '" title="연사 모집 신청서" loading="lazy">로드 중…</iframe>';
   }
 
   if (RSVP_ENDPOINT){
