@@ -438,6 +438,36 @@
     border-radius:var(--radius-sm);
     background:var(--paper);
   }
+  .rsvp-live-count{
+    text-align:center;
+    margin-top:10px;
+    font-weight:700;
+    color:var(--ink-soft);
+  }
+  .count-frame{
+    display:inline-block;
+    width:32px;
+    height:20px;
+    vertical-align:middle;
+    border:0;
+    background:transparent;
+  }
+  .rsvp-count-big{
+    font-family:'Gowun Batang',serif;
+    font-weight:700;
+    font-size:2rem;
+    color:var(--forest);
+    display:flex;
+    align-items:center;
+    gap:4px;
+  }
+  .count-frame-lg{
+    display:inline-block;
+    width:70px;
+    height:44px;
+    border:0;
+    background:transparent;
+  }
   .field{
     display:flex;
     flex-direction:column;
@@ -541,6 +571,7 @@
         </div>
         <span class="eyebrow">청소년운영위원회 &lsquo;Must Have&rsquo; 20주년</span>
         <h1>다시, 우리 Must Have로</h1>
+        <p class="rsvp-live-count">🎉 지금까지 <iframe id="hero-count-frame" class="count-frame" title="참여 확정 인원" loading="lazy"></iframe>명의 선배가 함께하기로 했어요</p>
       </div>
 
       <div class="invite-letter">
@@ -576,6 +607,8 @@
         <div class="cta-row">
           <a class="btn btn-primary" href="#rsvp">참여 의사 표시하기</a>
           <a class="btn btn-ghost" href="#schedule">일정 먼저 보기</a>
+          <a class="btn btn-ghost" id="calendar-btn" href="#" target="_blank" rel="noopener">🗓️ 캘린더에 추가</a>
+          <button class="btn btn-ghost" type="button" id="share-btn">🔗 공유하기</button>
         </div>
         <p class="hint">같은 기수 친구와 함께 오시면 더 반가워요!</p>
         <p class="signoff">제20기 Must Have 드림</p>
@@ -681,6 +714,7 @@
             </div>
             <button class="btn btn-primary" type="submit" id="rsvp-submit" style="width:100%;">참여 의사 남기기</button>
             <p class="form-msg" id="rsvp-msg" role="status" aria-live="polite"></p>
+            <p class="hint">남기신 성함은 이 페이지에 공개되지 않아요. 준비팀만 확인합니다.</p>
           </form>
           <iframe name="rsvp-target" id="rsvp-target" title="참여 신청 전송" hidden></iframe>
 
@@ -693,7 +727,8 @@
 
         <div class="rsvp-card">
           <div class="rsvp-count-label">지금까지 함께하기로 한 분들</div>
-          <iframe id="rsvp-list-frame" class="rsvp-list-frame" title="참여 명단" loading="lazy" hidden></iframe>
+          <p class="rsvp-count-big"><iframe id="rsvp-count-frame" class="count-frame-lg" title="참여 확정 인원" loading="lazy"></iframe>명</p>
+          <p class="hint">이름은 공개되지 않고 숫자만 표시돼요.</p>
         </div>
       </div>
     </div>
@@ -748,22 +783,51 @@
   var msgEl = document.getElementById('rsvp-msg');
   var submitBtn = document.getElementById('rsvp-submit');
   var targetFrame = document.getElementById('rsvp-target');
-  var listFrame = document.getElementById('rsvp-list-frame');
+  var heroCountFrame = document.getElementById('hero-count-frame');
+  var rsvpCountFrame = document.getElementById('rsvp-count-frame');
 
   function setMsg(text, kind){
     msgEl.textContent = text;
     msgEl.className = 'form-msg' + (kind ? ' ' + kind : '');
   }
 
-  function refreshList(){
+  function refreshCounts(){
     if (!RSVP_ENDPOINT) return;
-    listFrame.hidden = false;
-    listFrame.src = RSVP_ENDPOINT + '?type=rsvp&t=' + Date.now();
+    var src = RSVP_ENDPOINT + '?type=count&t=' + Date.now();
+    heroCountFrame.src = src;
+    rsvpCountFrame.src = src;
   }
 
   if (RSVP_ENDPOINT){
     form.action = RSVP_ENDPOINT;
-    refreshList();
+    refreshCounts();
+  }
+
+  var calendarBtn = document.getElementById('calendar-btn');
+  if (calendarBtn){
+    var calTitle = encodeURIComponent('청소년운영위원회 Must Have 20주년 홈커밍데이');
+    var calDetails = encodeURIComponent('다시, 우리 Must Have로 — 20년 전 함께한 선배님들을 초대합니다.');
+    var calLocation = encodeURIComponent('산울림청소년센터 (세부 공간 추후 안내)');
+    calendarBtn.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + calTitle +
+      '&dates=20261031T050000Z/20261031T080000Z&details=' + calDetails + '&location=' + calLocation;
+  }
+
+  var shareBtn = document.getElementById('share-btn');
+  if (shareBtn){
+    shareBtn.addEventListener('click', function(){
+      var shareData = { title: document.title, text: '청소년운영위원회 Must Have 20주년 홈커밍데이에 초대합니다!', url: location.href };
+      if (navigator.share){
+        navigator.share(shareData).catch(function(){});
+        return;
+      }
+      if (navigator.clipboard){
+        navigator.clipboard.writeText(location.href).then(function(){
+          var original = shareBtn.textContent;
+          shareBtn.textContent = '링크 복사됨!';
+          setTimeout(function(){ shareBtn.textContent = original; }, 2000);
+        });
+      }
+    });
   }
 
   // 참여 신청은 fetch가 아니라 숨겨진 iframe으로 실제 폼 전송을 해요.
@@ -794,7 +858,7 @@
       submitBtn.textContent = '참여 의사 남기기';
       setMsg('참여 의사가 표시됐어요. 곧 만나요! 🎉', 'ok');
       form.reset();
-      refreshList();
+      refreshCounts();
     });
     // 여기서는 preventDefault를 하지 않아요 — 브라우저가 실제로 폼을 제출하도록 둡니다.
   });
