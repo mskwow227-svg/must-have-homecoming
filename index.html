@@ -360,11 +360,18 @@
     gap:8px;
     margin-bottom:24px;
   }
+  .recruit-row{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  @media (min-width:640px){
+    .recruit-row{grid-template-columns:1fr 1fr;align-items:stretch;}
+  }
   .recruit-guide{
     background:var(--forest-tint);
     border-radius:var(--radius-md);
     padding:18px 20px;
-    margin-bottom:20px;
   }
   .recruit-guide p.gf-title{
     font-family:'Gowun Batang',serif;
@@ -396,6 +403,7 @@
     display:flex;
     flex-direction:column;
     align-items:flex-start;
+    justify-content:center;
     gap:12px;
     padding:24px;
     background:var(--card);
@@ -639,19 +647,21 @@
         <span class="chip">최근 졸업생 또는 역대 지도자</span>
       </div>
 
-      <div class="recruit-guide">
-        <p class="gf-title">발표는 이렇게 구성돼요 (10분)</p>
-        <div class="speaker-steps">
-          <div class="speaker-step"><span class="n">1</span><span class="t">Must Have에 들어가기 전의 나 (2분)</span></div>
-          <div class="speaker-step"><span class="n">2</span><span class="t">활동 중 가장 결정적이었던 장면 (3분)</span></div>
-          <div class="speaker-step"><span class="n">3</span><span class="t">그 경험이 지금의 나에게 남긴 것 (3분)</span></div>
-          <div class="speaker-step"><span class="n">4</span><span class="t">후배에게 한마디 (2분)</span></div>
+      <div class="recruit-row">
+        <div class="recruit-guide">
+          <p class="gf-title">발표는 이렇게 구성돼요 (10분)</p>
+          <div class="speaker-steps">
+            <div class="speaker-step"><span class="n">1</span><span class="t">Must Have에 들어가기 전의 나 (2분)</span></div>
+            <div class="speaker-step"><span class="n">2</span><span class="t">활동 중 가장 결정적이었던 장면 (3분)</span></div>
+            <div class="speaker-step"><span class="n">3</span><span class="t">그 경험이 지금의 나에게 남긴 것 (3분)</span></div>
+            <div class="speaker-step"><span class="n">4</span><span class="t">후배에게 한마디 (2분)</span></div>
+          </div>
         </div>
-      </div>
 
-      <div class="gform-cta">
-        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScHQWAJDpWtW4RBaH2wVuLW6vTX9nDMnHQMQYU1k1FBeU_6Vg/viewform" target="_blank" rel="noopener">📋 연사 지원서 작성하기</a>
-        <p class="hint">새 탭에서 구글폼이 열려요. 지금 바로 지원하고 싶다면 전화나 문자도 좋아요 — <strong>김민선 청소년지도사 · 032-344-4480</strong></p>
+        <div class="gform-cta">
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScHQWAJDpWtW4RBaH2wVuLW6vTX9nDMnHQMQYU1k1FBeU_6Vg/viewform" target="_blank" rel="noopener">📋 연사 지원서 작성하기</a>
+          <p class="hint">새 탭에서 구글폼이 열려요. 지금 바로 지원하고 싶다면 전화나 문자도 좋아요 — <strong>김민선 청소년지도사 · 032-344-4480</strong></p>
+        </div>
       </div>
     </div>
   </section>
