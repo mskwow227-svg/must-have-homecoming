@@ -609,8 +609,8 @@
     <nav class="nav-links">
       <a href="#invite">초대장</a>
       <a href="#schedule">일정</a>
-      <a href="#speaker-recruit">신청서</a>
-      <a href="#rsvp">참여 표시</a>
+      <a href="#rsvp">참석 신청</a>
+      <a href="#speaker-recruit">연사 지원</a>
     </nav>
   </div>
 </div>
@@ -647,7 +647,7 @@
         </div>
 
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe8JG0N3tkGtmBXsE7ZbnTYEeKViJvJ20QWxyTG1VPRyI-r6Q/viewform" target="_blank" rel="noopener">신청서 작성하기</a>
+          <a class="btn btn-primary" href="#rsvp">참석 신청하기</a>
           <a class="btn btn-primary" href="https://open.kakao.com/o/gSC2OTNi" target="_blank" rel="noopener">📸 추억 사진 올리러 가기</a>
           <div class="cta-secondary">
             <a class="btn btn-ghost btn-sm" href="#schedule">일정 먼저 보기</a>
@@ -689,40 +689,12 @@
     </div>
   </section>
 
-  <section id="speaker-recruit">
+  <section id="rsvp">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">1단계 · 신청서</span>
-        <h2>선배님의 참석을 기다릴게요</h2>
-        <p class="lede">정확한 좌석·다과 준비를 위한 참가 신청과, 성장 이야기를 나눠주실 연사 지원을 하나의 신청서에서 함께 받아요. 참석만 하셔도 좋고, 연사로 지원하고 싶으시면 신청서 안에서 표시해주세요.</p>
-      </div>
-
-      <div class="recruit-row reveal">
-        <div class="recruit-guide">
-          <p class="gf-title">연사로 지원하시면 이렇게 구성돼요 (입·퇴장 포함 10분)</p>
-          <div class="speaker-steps">
-            <div class="speaker-step"><span class="n">1</span><span class="t">Must Have에 들어가기 전의 나 (2분)</span></div>
-            <div class="speaker-step"><span class="n">2</span><span class="t">활동 중 가장 결정적이었던 장면 (3분)</span></div>
-            <div class="speaker-step"><span class="n">3</span><span class="t">그 경험이 지금의 나에게 남긴 것 (2분)</span></div>
-            <div class="speaker-step"><span class="n">4</span><span class="t">후배에게 한마디 (2분)</span></div>
-          </div>
-        </div>
-
-        <div class="gform-cta">
-          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe8JG0N3tkGtmBXsE7ZbnTYEeKViJvJ20QWxyTG1VPRyI-r6Q/viewform" target="_blank" rel="noopener">📝 신청서 작성하기</a>
-          <p class="hint">새 탭에서 구글폼이 열려요. 지금 바로 신청하고 싶다면 전화나 문자도 좋아요<br><strong>김민선 청소년지도사 · 032-344-4480</strong></p>
-          <p class="hint">신청서를 작성하셨다면, <a href="#rsvp">아래에도</a> 이름을 남겨주세요. 지금까지 몇 분이 함께하는지 바로 확인할 수 있어요 👇</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="rsvp" class="alt-bg">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">2단계 · 참여 표시</span>
+        <span class="eyebrow">참석 신청</span>
         <h2>함께하실 선배님, 지도자 선생님, 이름을 남겨주세요.</h2>
-        <p class="lede">위 신청서와는 별개로, 여기에도 이름을 남겨주세요. 참여 의사가 바로 반영되고, 지금까지 몇 분이 함께하기로 했는지 숫자로 확인할 수 있어요.</p>
+        <p class="lede">이름과 기수만 남겨주시면 참석 신청이 끝나요. 지금까지 몇 분이 함께하기로 했는지 숫자로 확인할 수 있어요.</p>
       </div>
 
       <div class="rsvp-layout reveal">
@@ -747,9 +719,9 @@
               <label for="f-note">응원 메시지 (선택)</label>
               <textarea id="f-note" name="note" maxlength="150" placeholder="20년 동안 자라온 Must Have에게, 그리고 함께할 후배들에게 한마디 남겨주세요."></textarea>
             </div>
-            <button class="btn btn-primary" type="submit" id="rsvp-submit" style="width:100%;">참여 의사 남기기</button>
+            <button class="btn btn-primary" type="submit" id="rsvp-submit" style="width:100%;">참석 신청하기</button>
             <p class="form-msg" id="rsvp-msg" role="status" aria-live="polite"></p>
-            <p class="hint">이름은 기본적으로 공개되지 않아요. 응원 메시지를 남기시면 메시지와 함께 이름이 표시돼요.</p>
+            <p class="hint">이름은 기본적으로 공개되지 않아요. 응원 메시지를 남기시면 메시지와 함께 이름이 표시돼요. 입력하신 정보는 참석 확인과 행사 안내 용도로만 사용합니다.</p>
           </form>
           <iframe name="rsvp-target" id="rsvp-target" title="참여 신청 전송" hidden></iframe>
         </div>
@@ -759,6 +731,33 @@
           <p class="rsvp-count-big"><span class="count-num" id="rsvp-count-num">0</span>명</p>
           <p class="hint">응원 메시지를 남겨주신 분들</p>
           <div id="msg-list" class="msg-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="speaker-recruit" class="alt-bg">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">연사 지원</span>
+        <h2>당신의 성장 이야기를 들려주세요</h2>
+        <p class="lede">Must Have 활동이 지금의 나에게 남긴 것을 들려주실 연사를 찾고 있어요. 참석 신청과는 별개로, 연사로 지원하시는 분만 아래 연사 신청서를 작성해주세요.</p>
+      </div>
+
+      <div class="recruit-row reveal">
+        <div class="recruit-guide">
+          <p class="gf-title">연사로 지원하시면 이렇게 구성돼요 (입·퇴장 포함 10분)</p>
+          <div class="speaker-steps">
+            <div class="speaker-step"><span class="n">1</span><span class="t">Must Have에 들어가기 전의 나 (2분)</span></div>
+            <div class="speaker-step"><span class="n">2</span><span class="t">활동 중 가장 결정적이었던 장면 (3분)</span></div>
+            <div class="speaker-step"><span class="n">3</span><span class="t">그 경험이 지금의 나에게 남긴 것 (2분)</span></div>
+            <div class="speaker-step"><span class="n">4</span><span class="t">후배에게 한마디 (2분)</span></div>
+          </div>
+        </div>
+
+        <div class="gform-cta">
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe8JG0N3tkGtmBXsE7ZbnTYEeKViJvJ20QWxyTG1VPRyI-r6Q/viewform" target="_blank" rel="noopener">📝 연사 지원서 작성하기</a>
+          <p class="hint">새 탭에서 구글폼이 열려요. 지금 바로 지원하고 싶다면 전화나 문자도 좋아요<br><strong>김민선 청소년지도사 · 032-344-4480</strong></p>
         </div>
       </div>
     </div>
@@ -887,7 +886,7 @@
 
     if (!RSVP_ENDPOINT){
       ev.preventDefault();
-      setMsg('지금은 참여 표시 저장이 준비 중이에요. 아래 공식 신청서를 이용해주세요.', 'err');
+      setMsg('지금은 참석 신청 저장이 준비 중이에요. 잠시 후 다시 시도하시거나 전화로 문의해주세요.', 'err');
       return;
     }
     if (!name || !cohort){
@@ -903,8 +902,8 @@
     targetFrame.addEventListener('load', function onLoad(){
       targetFrame.removeEventListener('load', onLoad);
       submitBtn.disabled = false;
-      submitBtn.textContent = '참여 의사 남기기';
-      setMsg('참여 의사가 표시됐어요. 곧 만나요! 🎉', 'ok');
+      submitBtn.textContent = '참석 신청하기';
+      setMsg('참석 신청이 완료됐어요. 곧 만나요! 🎉', 'ok');
       form.reset();
       refreshCounts();
       refreshMessages();
