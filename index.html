@@ -24,7 +24,8 @@
     --cream:#FFF7CF;
     --ink:#10303D;
     --ink-soft:#4B6672;
-    --pink:#FF4F8B;
+    --green:#2BC16B;
+    --green-text:#0B7A3C;
     --white:#fff;
     --font:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
     --r:20px;
@@ -124,7 +125,7 @@
   }
   .btn:hover{transform:translate(-1px,-2px);box-shadow:5px 5px 0 var(--ink);}
   .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink);}
-  .btn-primary{background:var(--pink);color:var(--white);}
+  .btn-primary{background:var(--green);color:var(--ink);}
   .btn-ghost:hover{background:var(--cream);}
   .btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:2px 2px 0 var(--ink);}
   .btn-sm{padding:8px 16px;font-size:.92rem;box-shadow:2px 2px 0 var(--ink);}
@@ -245,7 +246,7 @@
   .count-num{font-weight:900;}
   .rsvp-live-count .count-num{
     font-size:1.25em;
-    color:var(--pink);
+    color:var(--green-text);
     padding-inline:.1em;
   }
 
@@ -377,7 +378,7 @@
     box-shadow:3px 3px 0 var(--ink);
   }
   .t-item.highlight .t-body{background:var(--yellow);box-shadow:4px 4px 0 var(--ink);}
-  .t-item.highlight .t-dot{background:var(--pink);color:var(--white);}
+  .t-item.highlight .t-dot{background:var(--green);color:var(--ink);}
   .t-time{
     display:block;
     font-size:.86rem;
@@ -419,7 +420,7 @@
   .rsvp-count-big .count-num{
     font-size:4rem;
     line-height:1.1;
-    color:var(--pink);
+    color:var(--green-text);
     letter-spacing:-.04em;
   }
   .field{
@@ -459,7 +460,7 @@
     min-height:1.5em;
   }
   .form-msg.ok{background:var(--cream);border:2px solid var(--ink);border-radius:12px;padding:8px 12px;}
-  .form-msg.err{color:var(--pink);}
+  .form-msg.err{color:#C4162F;}
   #rsvp-form .hint{margin-top:12px;}
 
   .msg-list{
@@ -669,7 +670,7 @@
 
         <ul class="perks">
           <li>에코백·파우치 기념품과 다과를 준비했어요</li>
-          <li>같은 기수 친구와 함께 오면 더 반가워요</li>
+          <li>동기·선후배와 함께 오셔도 좋아요. 동반 인원을 신청서에 적어주세요</li>
           <li>그 시절 사진은 오픈채팅방에 올려주세요</li>
         </ul>
         <p class="signoff">제20기 Must Have 드림</p>
@@ -695,7 +696,7 @@
         <li class="t-item"><span class="t-dot">4</span>
           <div class="t-body"><span class="t-time">15:20</span><div class="t-title">교류의 장</div><div class="t-desc">1층 맥놀이판으로 이동해 위원장 인사말, 연사와 함께하는 Q&amp;A 토크, 같은 시기에 함께한 선배·지도자님과의 기수별 좌담, 현 위원과의 선후배 토크, 추억 메시지 카드 작성</div></div></li>
         <li class="t-item"><span class="t-dot">5</span>
-          <div class="t-body"><span class="t-time">17:20</span><div class="t-title">단체사진 &amp; 마무리</div><div class="t-desc">1층 맥놀이판 · 짧은 만족도 조사, 단체사진 촬영, 선후배 연락망 업데이트</div></div></li>
+          <div class="t-body"><span class="t-time">16:30</span><div class="t-title">단체사진 &amp; 마무리</div><div class="t-desc">1층 맥놀이판 · 짧은 만족도 조사, 단체사진 촬영, 선후배 연락망 업데이트</div></div></li>
       </ol>
     </div>
   </section>
@@ -809,7 +810,7 @@ function confetti(from){
   var r = from.getBoundingClientRect();
   var cx = r.left + r.width / 2;
   var cy = r.top + r.height / 2;
-  var colors = ['#FF4F8B', '#FFE14D', '#10303D'];
+  var colors = ['#2BC16B', '#FFE14D', '#10303D'];
   for (var i = 0; i < 30; i++){
     var p = document.createElement('i');
     p.className = 'confetti';
