@@ -279,8 +279,9 @@
     margin-top:30px;
     font-family:var(--hand);
     font-weight:700;
-    font-size:clamp(1.35rem,5.2vw,1.9rem);
-    line-height:1.35;
+    font-size:clamp(1.2rem,4.8vw,1.9rem);
+    line-height:1.4;
+    text-wrap:balance;
   }
   .tagline span{background:linear-gradient(transparent 58%, rgba(255,255,255,.9) 58%);padding-inline:.15em;}
   .tagline .n20{color:#8A5BD6;}
@@ -688,8 +689,8 @@
     white-space:pre-line;
     font-family:var(--hand);
     font-weight:700;
-    font-size:1.3rem;
-    line-height:1.45;
+    font-size:1.15rem;
+    line-height:1.5;
     margin:0 0 6px;
   }
   .msg-name{
@@ -817,6 +818,10 @@
     .t-time{left:50px;}
     .deco.hide-m{display:none;}
     .rsvp-count-big .count-num{font-size:4rem;}
+    .brand{font-size:.84rem;gap:6px;}
+    .brand-icon{height:24px;}
+    .nav-inner{padding-inline:14px;gap:8px;}
+    .nav-links a{padding:5px 11px;font-size:.88rem;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -892,7 +897,7 @@
 
         <ul class="info-list">
           <li><span class="pill">📅 일시</span><div><strong>2026년 10월 31일(토) 14:30–17:50</strong></div></li>
-          <li><span class="pill">📍 장소</span><div><strong>산울림청소년센터 야외무대 · 1층 맥놀이판</strong><small>경기도 부천시 원미구 역곡로 149-65</small></div></li>
+          <li><span class="pill">📍 장소</span><div><strong>산울림청소년센터 야외무대 · 1층 맥놀이판</strong><small>경기도 부천시 원미구 역곡로 149&#8209;65</small></div></li>
           <li><span class="pill">👥 대상</span><div><strong>역대 Must Have 위원 및 지도자</strong></div></li>
         </ul>
 
@@ -1010,7 +1015,7 @@
 
       <div class="recruit-row reveal">
         <div class="recruit-guide">
-          <p class="gf-title">연사로 지원하시면 이렇게 구성돼요 (입·퇴장 포함 10분)</p>
+          <p class="gf-title">연사로 지원하시면 이렇게 구성돼요 <span style="white-space:nowrap">(입·퇴장 포함 10분)</span></p>
           <div class="speaker-steps">
             <div class="speaker-step"><span class="n">1</span><span class="t">Must Have에 들어가기 전의 나 (2분)</span></div>
             <div class="speaker-step"><span class="n">2</span><span class="t">활동 중 가장 결정적이었던 장면 (3분)</span></div>
