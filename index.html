@@ -493,6 +493,14 @@
     gap:10px;
     min-height:80px;
   }
+  .msg-list.collapsed .msg-card:nth-child(n+4){display:none;}
+  .msg-list.expanded{
+    max-height:420px;
+    overflow-y:auto;
+    padding-right:4px;
+  }
+  .msg-toggle{margin-top:12px;}
+  .msg-toggle[hidden]{display:none;}
   .msg-card{
     background:var(--paper-alt);
     border:1px solid var(--line);
@@ -732,6 +740,7 @@
           <p class="rsvp-count-big"><span class="count-num" id="rsvp-count-num">0</span>명</p>
           <p class="hint">응원 메시지를 남겨주신 분들</p>
           <div id="msg-list" class="msg-list"></div>
+          <button type="button" id="msg-toggle" class="btn btn-ghost btn-sm msg-toggle" aria-expanded="false" hidden></button>
         </div>
       </div>
     </div>
@@ -782,7 +791,25 @@
 
 <script>
 (function(){
-  var RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxt0R8OJu8hQzfLaz_HezuB3iYE9PZ-BbyRXKiX9Kql3IOd-lKUTUKeWoDDv1WU0X5Yjg/exec';
+  if (location.hash){
+    history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.addEventListener('load', function(){ window.scrollTo({ top: 0, behavior: 'instant' }); });
+  }
+
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest && ev.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href').slice(1);
+    var el = id && document.getElementById(id);
+    if (!el) return;
+    ev.preventDefault();
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+
+(function(){
+  var RSVP_ENDPOINT ='https://script.google.com/macros/s/AKfycbxt0R8OJu8hQzfLaz_HezuB3iYE9PZ-BbyRXKiX9Kql3IOd-lKUTUKeWoDDv1WU0X5Yjg/exec';
 
   var form = document.getElementById('rsvp-form');
   var msgEl = document.getElementById('rsvp-msg');
@@ -813,7 +840,10 @@
   window.__mhMessages = function(list){
     var container = document.getElementById('msg-list');
     if (!container) return;
+    var toggle = document.getElementById('msg-toggle');
     container.innerHTML = '';
+    container.classList.remove('collapsed', 'expanded');
+    if (toggle) toggle.hidden = true;
     if (!list || !list.length){
       var empty = document.createElement('div');
       empty.className = 'msg-card empty';
@@ -834,7 +864,25 @@
       card.appendChild(name);
       container.appendChild(card);
     });
+    if (toggle && list.length > 3){
+      container.classList.add('collapsed');
+      toggle.hidden = false;
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '응원 메시지 ' + list.length + '개 모두 보기';
+    }
   };
+
+  var msgToggle = document.getElementById('msg-toggle');
+  if (msgToggle){
+    msgToggle.addEventListener('click', function(){
+      var list = document.getElementById('msg-list');
+      var expanding = list.classList.contains('collapsed');
+      list.classList.toggle('collapsed', !expanding);
+      list.classList.toggle('expanded', expanding);
+      msgToggle.setAttribute('aria-expanded', expanding ? 'true' : 'false');
+      msgToggle.textContent = expanding ? '접기' : '응원 메시지 ' + list.children.length + '개 모두 보기';
+    });
+  }
 
   function refreshMessages(){
     if (!RSVP_ENDPOINT) return;
@@ -863,13 +911,13 @@
   var shareBtn = document.getElementById('share-btn');
   if (shareBtn){
     shareBtn.addEventListener('click', function(){
-      var shareData = { title: document.title, text: '청소년운영위원회 Must Have 20주년 홈커밍데이에 초대합니다!', url: location.href };
+      var shareData = { title: document.title, text: '청소년운영위원회 Must Have 20주년 홈커밍데이에 초대합니다!', url: location.origin + location.pathname };
       if (navigator.share){
         navigator.share(shareData).catch(function(){});
         return;
       }
       if (navigator.clipboard){
-        navigator.clipboard.writeText(location.href).then(function(){
+        navigator.clipboard.writeText(location.origin + location.pathname).then(function(){
           var original = shareBtn.textContent;
           shareBtn.textContent = '링크 복사됨!';
           setTimeout(function(){ shareBtn.textContent = original; }, 2000);
