@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FFF176">
 <title>청소년운영위원회 Must Have 홈커밍데이</title>
 <meta name="description" content="함께 만든 20년, 다시 잇는 우리의 이야기. 역대 위원 및 지도자 선생님들을 초대합니다. 2026년 10월 31일(토) 오후 2시 30분, 산울림청소년센터">
 <meta property="og:type" content="website">
@@ -12,331 +14,458 @@
 <meta property="og:url" content="https://must-have-homecoming.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&family=Jua&display=swap">
 <style>
   :root{
-    --paper:#F6F3E9;
-    --paper-alt:#EDE7D4;
-    --card:#FCFAF3;
-    --ink:#212A20;
-    --ink-soft:#57604F;
-    --forest:#26422F;
-    --forest-deep:#152318;
-    --forest-tint:#DEE6D8;
-    --gold:#A9793B;
-    --gold-soft:#EEDFBC;
-    --berry:#9C4152;
-    --berry-soft:#F1DADD;
-    --line:rgba(33,42,32,0.14);
-    --shadow:0 20px 44px -26px rgba(21,35,24,0.45);
-    --radius-lg:26px;
-    --radius-md:16px;
-    --radius-sm:10px;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --paper:#141B15;
-      --paper-alt:#1B2419;
-      --card:#1D261E;
-      --ink:#ECE7D7;
-      --ink-soft:#B7BEAE;
-      --forest:#9BC2A4;
-      --forest-deep:#0D140F;
-      --forest-tint:#26352A;
-      --gold:#D9AE68;
-      --gold-soft:#332A19;
-      --berry:#E093A0;
-      --berry-soft:#382125;
-      --line:rgba(236,231,215,0.14);
-      --shadow:0 20px 44px -26px rgba(0,0,0,0.65);
-    }
-  }
-  :root[data-theme="dark"]{
-    --paper:#141B15;
-    --paper-alt:#1B2419;
-    --card:#1D261E;
-    --ink:#ECE7D7;
-    --ink-soft:#B7BEAE;
-    --forest:#9BC2A4;
-    --forest-deep:#0D140F;
-    --forest-tint:#26352A;
-    --gold:#D9AE68;
-    --gold-soft:#332A19;
-    --berry:#E093A0;
-    --berry-soft:#382125;
-    --line:rgba(236,231,215,0.14);
-    --shadow:0 20px 44px -26px rgba(0,0,0,0.65);
+    --sun:#FFF176;
+    --sun-soft:#FFF9C4;
+    --sky:#5CE1FF;
+    --sky-soft:#D2F6FF;
+    --pink:#FF5C93;
+    --pink-soft:#FFE0EC;
+    --mint:#8CF28F;
+    --mint-soft:#DAFBDA;
+    --grape:#B58CE8;
+    --orange:#FF9A3C;
+    --ink:#0F3A4A;
+    --ink-soft:#35596A;
+    --display:'Jua','Gowun Dodum','Malgun Gothic',sans-serif;
+    --hand:'Gaegu','Gowun Dodum','Malgun Gothic',cursive;
+    --body:'Gowun Dodum','Malgun Gothic',sans-serif;
+    --r-lg:26px;
+    --r-md:18px;
   }
 
   *{box-sizing:border-box;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Gowun Dodum','Malgun Gothic',sans-serif;
-    line-height:1.7;
-    padding-inline:0;
-    margin:0;
-    word-break:keep-all;
-    overflow-wrap:break-word;
-  }
+  html{-webkit-text-size-adjust:100%;}
   @media (prefers-reduced-motion: no-preference){
     html{scroll-behavior:smooth;}
   }
-  h1,h2,h3,.display{
-    font-family:'Gowun Batang',Georgia,serif;
-    font-weight:700;
-    text-wrap:balance;
+  body{
+    margin:0;
+    background-color:var(--sun);
+    background-image:radial-gradient(rgba(15,58,74,0.09) 1.6px, transparent 1.7px);
+    background-size:22px 22px;
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.7;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+  }
+  ::selection{background:var(--pink);color:var(--ink);}
+  h1,h2,h3{
+    font-family:var(--display);
+    font-weight:400;
     color:var(--ink);
     margin:0;
+    text-wrap:balance;
   }
   p{margin:0;}
   a{color:inherit;}
   button{font-family:inherit;}
+  strong{font-weight:700;}
+  :focus-visible{outline:3px solid var(--ink);outline-offset:3px;}
   .container{
     max-width:880px;
     margin-inline:auto;
     padding-inline:20px;
+    position:relative;
+    z-index:1;
   }
+  section{
+    position:relative;
+    padding-block:64px;
+    scroll-margin-top:20px;
+  }
+  .sec-sky{background:var(--sky-soft);}
+  .sec-pink{background:var(--pink-soft);}
+  .sec-mint{background:var(--mint-soft);}
+
+  /* ---------- 스티커 공통 ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(26px) scale(.97);
+    transition:opacity .55s ease, transform .6s cubic-bezier(.34,1.56,.64,1);
+  }
+  .reveal.is-visible{opacity:1;transform:none;}
+
   .eyebrow{
-    font-size:0.8rem;
-    letter-spacing:0.18em;
-    color:var(--gold);
-    font-weight:700;
+    display:inline-block;
+    align-self:flex-start;
+    font-family:var(--display);
+    font-size:.95rem;
+    background:#fff;
+    border:2.5px solid var(--ink);
+    border-radius:999px;
+    padding:2px 14px;
+    transform:rotate(-2deg);
+    box-shadow:2px 2px 0 var(--ink);
+  }
+  .mark{
+    background:linear-gradient(transparent 60%, var(--sun) 60%);
+    padding-inline:.12em;
+    box-decoration-break:clone;
+    -webkit-box-decoration-break:clone;
+  }
+  .section-head{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:36px;
+  }
+  .section-head h2{font-size:clamp(1.7rem,6vw,2.5rem);line-height:1.3;}
+  .section-head .lede{color:var(--ink-soft);font-size:1.02rem;}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-family:var(--display);
+    font-size:1.08rem;
+    padding:12px 24px;
+    border:3px solid var(--ink);
+    border-radius:999px;
+    background:#fff;
+    color:var(--ink);
+    text-decoration:none;
+    cursor:pointer;
+    box-shadow:4px 4px 0 var(--ink);
+    transition:transform .14s ease, box-shadow .14s ease, background .14s ease;
+  }
+  .btn:hover{transform:translate(-1px,-3px) rotate(-1.2deg);box-shadow:6px 8px 0 var(--ink);}
+  .btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink);}
+  .btn-primary{background:var(--pink);}
+  .btn-sky{background:var(--sky);}
+  .btn-ghost{background:#fff;}
+  .btn-ghost:hover{background:var(--sun);}
+  .btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:2px 2px 0 var(--ink);}
+  .btn-sm{padding:7px 16px;font-size:.95rem;box-shadow:3px 3px 0 var(--ink);}
+  .hint{font-size:.88rem;color:var(--ink-soft);}
+  .hint a{color:var(--ink);font-weight:700;text-decoration:underline;}
+
+  /* ---------- 장식 ---------- */
+  .deco{
+    position:absolute;
+    z-index:0;
+    pointer-events:none;
+    height:auto;
+    --rot:0deg;
+  }
+  .float{animation:floaty 5.5s ease-in-out infinite;animation-delay:var(--d,0s);}
+  @keyframes floaty{
+    0%,100%{transform:translateY(0) rotate(var(--rot));}
+    50%{transform:translateY(-12px) rotate(calc(var(--rot) + 5deg));}
   }
 
   /* ---------- nav ---------- */
   .nav{
     position:sticky;
     top:env(safe-area-inset-top,0px);
-    z-index:40;
-    background:color-mix(in srgb, var(--paper) 88%, transparent);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
+    z-index:50;
+    background:#fff;
+    border-bottom:3px solid var(--ink);
   }
   .nav-inner{
     max-width:880px;
     margin-inline:auto;
-    padding:14px 20px;
+    padding:9px 20px;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:12px;
   }
   .brand{
-    font-family:'Gowun Batang',serif;
-    font-weight:700;
-    font-size:0.82rem;
-    color:var(--ink-soft);
     display:flex;
     align-items:center;
-    gap:6px;
+    gap:8px;
+    font-family:var(--display);
+    font-size:.98rem;
+    color:var(--ink);
     white-space:nowrap;
   }
-  .brand-icon{
-    height:22px;
-    width:auto;
-    display:block;
-  }
+  .brand-icon{height:28px;width:auto;display:block;}
   .nav-links{
     display:flex;
-    gap:4px;
+    gap:6px;
     overflow-x:auto;
     scrollbar-width:none;
     min-width:0;
   }
   .nav-links::-webkit-scrollbar{display:none;}
   .nav-links a{
-    font-size:0.86rem;
-    padding:8px 12px;
+    font-family:var(--display);
+    font-size:.93rem;
+    padding:5px 14px;
+    border:2.5px solid transparent;
     border-radius:999px;
     text-decoration:none;
-    color:var(--ink-soft);
+    color:var(--ink);
+    white-space:nowrap;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .nav-links a:hover{background:var(--sun);border-color:var(--ink);}
+  .nav-links a.active{background:var(--pink);border-color:var(--ink);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding-block:56px 36px;
+    overflow:hidden;
+    background-color:var(--sun);
+  }
+  .hero-title{
+    position:relative;
+    max-width:640px;
+    margin:26px auto 0;
+  }
+  .bubble{
+    position:absolute;
+    z-index:3;
+    font-family:var(--display);
+    font-size:1.05rem;
+    background:#fff;
+    border:2.5px solid var(--ink);
+    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+    padding:5px 16px;
+    box-shadow:3px 3px 0 var(--ink);
     white-space:nowrap;
   }
-  .nav-links a:hover, .nav-links a:focus-visible{
-    background:var(--forest-tint);
-    color:var(--forest);
+  .bubble-date{top:-22px;left:3%;transform:rotate(-6deg);animation:wobble 4s ease-in-out infinite;}
+  .bubble-anniv{top:-26px;right:2%;transform:rotate(5deg);cursor:pointer;animation:wobble 4s ease-in-out infinite reverse;}
+  @keyframes wobble{
+    0%,100%{rotate:-2deg;}
+    50%{rotate:3deg;}
   }
-  .nav-links a.active{
-    background:var(--forest-tint);
-    color:var(--forest);
-    font-weight:700;
+  .cloud{
+    position:relative;
+    text-align:center;
+    padding:70px 58px 72px;
+    animation:popin .8s cubic-bezier(.34,1.56,.64,1) both;
   }
-
-  main{display:block;}
-  section{
-    padding-block:56px;
+  @keyframes popin{
+    0%{transform:scale(.7) rotate(-4deg);opacity:0;}
+    100%{transform:none;opacity:1;}
   }
-  section.alt-bg{
-    background:var(--paper-alt);
-  }
-  .wave-divider{
-    line-height:0;
-    background:var(--paper);
-  }
-  .wave-divider svg{
-    display:block;
+  .cloud-bg{
+    position:absolute;
+    inset:0;
     width:100%;
-    height:36px;
+    height:100%;
+    overflow:visible;
+    filter:drop-shadow(6px 7px 0 var(--ink));
   }
-  .wave-divider path{
-    fill:var(--paper-alt);
-  }
-  .reveal{
-    opacity:0;
-    transform:translateY(18px);
-    transition:opacity .6s ease, transform .6s ease;
-  }
-  .reveal.is-visible{
-    opacity:1;
-    transform:none;
-  }
-  @media (prefers-reduced-motion: reduce){
-    .reveal{opacity:1;transform:none;transition:none;}
-  }
-  .section-head{
+  .cloud-bg path{fill:var(--sky);stroke:var(--ink);stroke-width:4;stroke-linejoin:round;vector-effect:non-scaling-stroke;}
+  .cloud-bg.tall{display:none;}
+  .cloud h1{
+    position:relative;
     display:flex;
     flex-direction:column;
-    gap:8px;
-    margin-bottom:32px;
+    align-items:center;
+    line-height:1.12;
   }
-  .section-head h2{
-    font-size:clamp(1.5rem,4vw,2rem);
+  .cloud-top{font-size:clamp(1.05rem,4.4vw,1.6rem);}
+  .mh{font-size:clamp(2.7rem,12vw,5rem);letter-spacing:-.01em;}
+  .hc{
+    font-size:clamp(2.2rem,9.4vw,3.8rem);
+    color:var(--pink);
+    text-shadow:2px 0 #fff,-2px 0 #fff,0 2px #fff,0 -2px #fff,2px 2px #fff,-2px -2px #fff,2px -2px #fff,-2px 2px #fff;
   }
-  .section-head .lede{
-    color:var(--ink-soft);
-    font-size:0.98rem;
-  }
-
-  /* ---------- hero / invitation ---------- */
-  .hero{
-    padding-block:48px 60px;
+  .tagline{
     position:relative;
-  }
-  .hero-inner{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:28px;
-  }
-  .hero h1{
-    font-size:clamp(2.1rem,6vw,3rem);
+    z-index:1;
     text-align:center;
-    margin-top:14px;
+    margin-top:30px;
+    font-family:var(--hand);
+    font-weight:700;
+    font-size:clamp(1.35rem,5.2vw,1.9rem);
+    line-height:1.35;
   }
-  .hero .eyebrow{
-    display:block;
-    text-align:center;
+  .tagline span{background:linear-gradient(transparent 58%, rgba(255,255,255,.9) 58%);padding-inline:.15em;}
+  .tagline .n20{color:#8A5BD6;}
+  .live-row{
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin-top:20px;
   }
+  .dday{
+    display:inline-block;
+    font-family:var(--display);
+    font-size:1.2rem;
+    background:var(--pink);
+    border:3px solid var(--ink);
+    border-radius:999px;
+    padding:3px 18px;
+    transform:rotate(-4deg);
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .rsvp-live-count{
+    background:#fff;
+    border:2.5px solid var(--ink);
+    border-radius:20px;
+    padding:6px 16px;
+    font-weight:700;
+    box-shadow:3px 3px 0 var(--ink);
+    transform:rotate(.8deg);
+  }
+  .rsvp-live-count .count-num{
+    background:var(--pink-soft);
+    border-radius:8px;
+    padding:0 .35em;
+    font-size:1.2em;
+  }
+  .count-num{font-family:var(--display);}
+
   .invite-letter{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius-lg);
-    padding:32px clamp(20px,5vw,44px);
-    box-shadow:var(--shadow);
+    position:relative;
+    margin-top:46px;
+    background:#fff;
+    border:3px solid var(--ink);
+    border-radius:var(--r-lg);
+    padding:38px clamp(20px,5vw,44px) 30px;
+    box-shadow:7px 7px 0 var(--ink);
     display:flex;
     flex-direction:column;
     gap:16px;
   }
-  .invite-letter p{
-    font-size:1.02rem;
+  .invite-letter::before,
+  .rsvp-card::before{
+    content:"";
+    position:absolute;
+    top:-17px;
+    left:50%;
+    width:120px;
+    height:32px;
+    transform:translateX(-50%) rotate(-3deg);
+    background-color:rgba(255,92,147,.7);
+    background-image:radial-gradient(rgba(255,255,255,.9) 2.2px, transparent 2.6px);
+    background-size:11px 11px;
+    border:2px solid rgba(15,58,74,.25);
   }
-  .invite-letter .salute{
-    font-family:'Gowun Batang',serif;
-    font-size:1.15rem;
+  .invite-letter p{font-size:1.04rem;}
+  .salute{
+    font-family:var(--hand);
+    font-weight:700;
+    font-size:1.9rem !important;
+    color:var(--pink);
+    line-height:1.3;
+    text-shadow:1px 1px 0 var(--ink);
   }
-  .facts{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:12px;
-    margin-block:8px;
-    padding:18px;
-    background:var(--forest-tint);
-    border-radius:var(--radius-md);
+  .signoff{
+    text-align:right;
+    font-family:var(--hand);
+    font-weight:700;
+    font-size:1.5rem !important;
   }
-  .fact{
+
+  .info-list{
+    list-style:none;
+    margin:6px 0;
+    padding:0;
     display:flex;
-    gap:10px;
-    align-items:flex-start;
+    flex-direction:column;
+    gap:12px;
   }
-  .fact .ico{font-size:1.15rem;line-height:1.5;}
-  .fact .label{font-size:0.78rem;color:var(--ink-soft);letter-spacing:0.04em;}
-  .fact .val{font-weight:700;font-family:'Gowun Batang',serif;font-size:1rem;}
-  .fact .addr{font-size:0.8rem;color:var(--ink-soft);margin-top:2px;}
-  .tagline{
+  .info-list li{display:flex;align-items:flex-start;gap:14px;}
+  .pill{
+    flex:none;
+    min-width:84px;
     text-align:center;
-    margin-top:10px;
-    font-family:'Gowun Batang',serif;
-    font-size:1.05rem;
-    color:var(--ink-soft);
+    font-family:var(--display);
+    font-size:1.02rem;
+    background:var(--mint);
+    border:3px solid var(--ink);
+    border-radius:999px;
+    padding:2px 12px;
+    box-shadow:2px 2px 0 var(--ink);
+    white-space:nowrap;
   }
-  .placeholder{
-    color:var(--ink-soft);
-    font-style:italic;
-    border-bottom:1px dotted var(--gold);
-  }
+  .info-list li:nth-child(2) .pill{background:var(--sky);}
+  .info-list li:nth-child(3) .pill{background:var(--pink);}
+  .info-list strong{display:block;font-family:var(--display);font-weight:400;font-size:1.12rem;line-height:1.4;padding-top:2px;}
+  .info-list small{display:block;font-size:.84rem;color:var(--ink-soft);margin-top:2px;}
+
   .cta-row{
     display:flex;
     flex-wrap:wrap;
     align-items:center;
     gap:14px;
-    margin-top:6px;
+    margin-top:8px;
   }
-  .btn-sm{
-    padding:9px 16px;
-    font-size:0.85rem;
-  }
+  .cta-row > .btn{font-size:1.2rem;padding:14px 28px;}
   .cta-secondary{
     display:flex;
-    gap:8px;
+    flex-wrap:wrap;
+    gap:10px;
+    width:100%;
   }
-  @media (max-width:480px){
-    .cta-secondary{
-      width:100%;
-      gap:6px;
-    }
-    .cta-secondary .btn{
-      flex:1 1 0;
-      min-width:0;
-      padding-inline:4px;
-      font-size:0.74rem;
-      white-space:nowrap;
-    }
+  .tile .ic{font-size:1.1em;line-height:1;}
+
+  .perks{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
   }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    border-radius:999px;
-    padding:13px 26px;
+  .perk{
     font-weight:700;
-    font-size:0.98rem;
-    text-decoration:none;
-    border:1px solid transparent;
-    cursor:pointer;
-    transition:transform .15s ease, box-shadow .15s ease;
+    font-size:.92rem;
+    background:var(--mint-soft);
+    border:2.5px solid var(--ink);
+    border-radius:14px;
+    padding:4px 12px;
+    box-shadow:2px 2px 0 var(--ink);
   }
-  .btn:hover{transform:translateY(-1px);}
-  .btn-primary{
-    background:var(--forest);
-    color:var(--paper);
-    box-shadow:0 14px 28px -16px color-mix(in srgb, var(--forest) 70%, transparent);
+  .perk:nth-child(2){background:var(--pink-soft);transform:rotate(-1deg);}
+  .perk:nth-child(3){background:var(--sky-soft);transform:rotate(1deg);}
+  .perk:nth-child(1){transform:rotate(.8deg);}
+
+  /* ---------- 띠 / 구분선 ---------- */
+  .marquee-wrap{
+    overflow:hidden;
+    padding:18px 0;
+    background:var(--sun);
+    position:relative;
+    z-index:2;
   }
-  .btn-primary:disabled{opacity:0.55;cursor:not-allowed;transform:none;}
-  .btn-ghost{
-    background:transparent;
-    border-color:var(--line);
-    color:var(--ink);
+  .marquee{
+    width:106%;
+    margin-left:-3%;
+    background:var(--ink);
+    color:var(--sun);
+    border-block:3px solid var(--ink);
+    transform:rotate(-1.4deg);
+    white-space:nowrap;
+    overflow:hidden;
+    font-family:var(--display);
+    font-size:1.08rem;
+    padding:8px 0;
   }
-  .hint{font-size:0.86rem;color:var(--ink-soft);}
-  .hint a{color:var(--forest);font-weight:700;text-decoration:underline;}
-  .signoff{
-    text-align:right;
-    font-family:'Gowun Batang',serif;
-    color:var(--ink-soft);
-    font-size:0.95rem;
+  .marquee-track{display:inline-flex;animation:marq 30s linear infinite;}
+  .marquee-track span{padding-right:2.2em;}
+  @keyframes marq{to{transform:translateX(-50%);}}
+
+  .scallop{
+    height:20px;
+    margin-top:-1px;
+    background-color:var(--from);
+    background-repeat:repeat-x;
+    background-position:left bottom;
+    background-size:64px 20px;
   }
-  :focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  .from-sun{--from:var(--sun);}
+  .from-sky{--from:var(--sky-soft);}
+  .from-pink{--from:var(--pink-soft);}
+  .from-mint{--from:var(--mint-soft);}
+  .to-sky{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 20'%3E%3Cpath d='M0 20A32 20 0 0 1 64 20Z' fill='%23D2F6FF'/%3E%3C/svg%3E");}
+  .to-pink{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 20'%3E%3Cpath d='M0 20A32 20 0 0 1 64 20Z' fill='%23FFE0EC'/%3E%3C/svg%3E");}
+  .to-mint{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 20'%3E%3Cpath d='M0 20A32 20 0 0 1 64 20Z' fill='%23DAFBDA'/%3E%3C/svg%3E");}
+  .to-sunsoft{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 20'%3E%3Cpath d='M0 20A32 20 0 0 1 64 20Z' fill='%23FFF9C4'/%3E%3C/svg%3E");}
 
   /* ---------- timeline ---------- */
   .timeline{
@@ -348,269 +477,368 @@
   .timeline::before{
     content:"";
     position:absolute;
-    left:74px;
-    top:6px;
-    bottom:6px;
-    width:2px;
-    background:var(--line);
+    left:21px;
+    top:30px;
+    bottom:30px;
+    border-left:3px dashed rgba(15,58,74,.6);
   }
   .t-item{
     position:relative;
     display:grid;
-    grid-template-columns:74px 28px 1fr;
-    column-gap:12px;
-    padding-block:14px;
+    grid-template-columns:44px 1fr;
+    column-gap:14px;
+    padding-block:16px 8px;
   }
   .t-time{
-    font-variant-numeric:tabular-nums;
-    font-weight:700;
-    font-size:0.86rem;
-    padding-top:2px;
-    text-align:right;
-    color:var(--ink-soft);
+    position:absolute;
+    left:60px;
+    top:2px;
+    z-index:2;
+    font-family:var(--display);
+    font-size:.98rem;
+    background:var(--pink);
+    border:2.5px solid var(--ink);
+    border-radius:999px;
+    padding:0 13px;
+    transform:rotate(-3deg);
+    box-shadow:2px 2px 0 var(--ink);
   }
   .t-dot{
+    grid-column:1;
+    grid-row:1;
     display:flex;
     justify-content:center;
+    align-items:flex-start;
+    padding-top:12px;
   }
   .t-dot span{
-    width:11px;height:11px;border-radius:50%;
-    background:var(--paper);
-    border:2px solid var(--forest);
-    margin-top:5px;
-  }
-  .t-item.highlight .t-dot span{
-    background:var(--gold);
-    border-color:var(--gold);
-  }
-  .t-body{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius-sm);
-    padding:14px 16px;
-  }
-  .t-item.highlight .t-body{
-    border-color:var(--gold);
-    box-shadow:0 0 0 1px var(--gold-soft) inset;
-  }
-  .t-title{
-    font-family:'Gowun Batang',serif;
-    font-weight:700;
-    font-size:1.02rem;
-  }
-  .t-desc{
-    font-size:0.92rem;
-    color:var(--ink-soft);
-    margin-top:4px;
-  }
-  @media (max-width:520px){
-    .timeline::before{left:56px;}
-    .t-item{grid-template-columns:56px 20px 1fr;}
-    .t-time{font-size:0.76rem;}
-  }
-
-  /* ---------- speaker recruit (google form) ---------- */
-  .recruit-row{
+    position:relative;
+    z-index:1;
+    width:42px;
+    height:42px;
     display:grid;
-    grid-template-columns:1fr;
-    gap:16px;
-  }
-  @media (min-width:640px){
-    .recruit-row{grid-template-columns:1fr 1fr;align-items:stretch;}
-  }
-  .recruit-guide{
-    background:var(--forest-tint);
-    border-radius:var(--radius-md);
-    padding:18px 20px;
-    min-width:0;
-  }
-  .recruit-guide p.gf-title{
-    font-family:'Gowun Batang',serif;
-    font-weight:700;
-    margin-bottom:10px;
-  }
-  .speaker-steps{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-  }
-  .speaker-step{
-    display:flex;
-    gap:10px;
-    font-size:0.86rem;
-  }
-  .speaker-step .n{
-    flex:none;
-    width:20px;height:20px;
+    place-items:center;
+    font-size:1.25rem;
+    background:var(--sun);
+    border:3px solid var(--ink);
     border-radius:50%;
-    background:var(--gold-soft);
-    color:var(--gold);
-    font-size:0.72rem;
-    font-weight:700;
-    display:flex;align-items:center;justify-content:center;
+    box-shadow:2px 2px 0 var(--ink);
   }
-  .speaker-step .t{color:var(--ink-soft);}
-  .gform-cta{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    justify-content:center;
-    gap:12px;
-    padding:24px;
-    min-width:0;
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius-lg);
-    box-shadow:var(--shadow);
+  .t-dot span::before{content:"🎟️";}
+  .t-item:nth-child(2) .t-dot span::before{content:"🎤";}
+  .t-item:nth-child(3) .t-dot span::before{content:"🌟";}
+  .t-item:nth-child(4) .t-dot span::before{content:"💬";}
+  .t-item:nth-child(5) .t-dot span::before{content:"📸";}
+  .t-item:nth-child(1) .t-time,.t-item:nth-child(1) .t-dot span{background:var(--mint);}
+  .t-item:nth-child(2) .t-time,.t-item:nth-child(2) .t-dot span{background:var(--sun);}
+  .t-item:nth-child(3) .t-time,.t-item:nth-child(3) .t-dot span{background:var(--pink);}
+  .t-item:nth-child(4) .t-time,.t-item:nth-child(4) .t-dot span{background:var(--sky);}
+  .t-item:nth-child(5) .t-time,.t-item:nth-child(5) .t-dot span{background:var(--orange);}
+  .t-body{
+    position:relative;
+    grid-column:2;
+    grid-row:1;
+    background:#fff;
+    border:3px solid var(--ink);
+    border-radius:var(--r-md);
+    padding:22px 18px 14px;
+    box-shadow:4px 4px 0 var(--ink);
   }
+  .t-item.highlight .t-body{background:var(--pink-soft);box-shadow:5px 5px 0 var(--ink);}
+  .t-item.highlight .t-body::after{
+    content:"★ MAIN";
+    position:absolute;
+    top:-13px;
+    right:14px;
+    font-family:var(--display);
+    font-size:.85rem;
+    background:var(--sun);
+    border:2.5px solid var(--ink);
+    border-radius:999px;
+    padding:0 10px;
+    transform:rotate(4deg);
+  }
+  .t-title{font-family:var(--display);font-size:1.22rem;line-height:1.35;}
+  .t-desc{font-size:.96rem;color:var(--ink-soft);margin-top:4px;line-height:1.65;}
 
-  /* ---------- rsvp ---------- */
+  /* ---------- 참석 신청 ---------- */
   .rsvp-layout{
     display:grid;
     grid-template-columns:1fr;
-    gap:24px;
+    gap:34px;
   }
   @media (min-width:720px){
     .rsvp-layout{grid-template-columns:1fr 1fr;align-items:start;}
   }
   .rsvp-card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius-lg);
-    padding:24px;
-    box-shadow:var(--shadow);
+    position:relative;
     min-width:0;
+    background:#fff;
+    border:3px solid var(--ink);
+    border-radius:var(--r-lg);
+    padding:34px 22px 24px;
+    box-shadow:6px 6px 0 var(--ink);
   }
-  .rsvp-count-label{
-    font-family:'Gowun Batang',serif;
-    font-weight:700;
-    font-size:1.05rem;
-    margin-bottom:12px;
-  }
-  .msg-list{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    min-height:80px;
-  }
-  .msg-list.collapsed .msg-card:nth-child(n+4){display:none;}
-  .msg-list.expanded{
-    max-height:420px;
-    overflow-y:auto;
-    padding-right:4px;
-  }
-  .msg-toggle{margin-top:12px;}
-  .msg-toggle[hidden]{display:none;}
-  .msg-card{
-    background:var(--paper-alt);
-    border:1px solid var(--line);
-    border-radius:var(--radius-sm);
-    padding:12px 14px;
-  }
-  .msg-card.empty{
-    text-align:center;
-    color:var(--ink-soft);
-  }
-  .msg-text{
-    white-space:pre-line;
-    margin:0 0 6px;
-    font-size:0.92rem;
-    color:var(--ink);
-  }
-  .msg-name{
-    margin:0;
-    font-size:0.8rem;
-    color:var(--gold);
-    font-weight:700;
-    text-align:right;
-  }
-  .rsvp-live-count{
-    text-align:center;
-    margin-top:10px;
-    font-weight:700;
-    color:var(--ink-soft);
-  }
-  .count-num{
-    font-family:'Gowun Batang',serif;
-    font-weight:700;
-    color:var(--forest);
-  }
+  .rsvp-card:nth-child(2){background:var(--sun-soft);}
+  .rsvp-card:nth-child(2)::before{background-color:rgba(92,225,255,.75);}
+  .rsvp-count-label{font-family:var(--display);font-size:1.18rem;}
   .rsvp-count-big{
-    font-family:'Gowun Batang',serif;
-    font-weight:700;
-    font-size:2rem;
-    color:var(--forest);
     display:flex;
-    align-items:center;
-    gap:4px;
+    align-items:baseline;
+    gap:6px;
+    margin:4px 0 2px;
+    font-family:var(--display);
+    font-size:2.1rem;
+  }
+  .rsvp-count-big .count-num{
+    font-size:4.6rem;
+    line-height:1.1;
+    color:var(--pink);
+    text-shadow:-2px -2px 0 var(--ink),2px -2px 0 var(--ink),-2px 2px 0 var(--ink),2px 2px 0 var(--ink),4px 5px 0 var(--ink);
   }
   .field{
     display:flex;
     flex-direction:column;
     gap:6px;
-    margin-bottom:14px;
+    margin-bottom:16px;
     min-width:0;
   }
-  .field label{
-    font-size:0.84rem;
-    font-weight:700;
-    color:var(--ink-soft);
-  }
-  .field input, .field textarea{
+  .field label{font-family:var(--display);font-size:1rem;}
+  .field input,.field textarea{
     width:100%;
-    font-family:inherit;
-    font-size:0.96rem;
-    padding:11px 13px;
-    border-radius:var(--radius-sm);
-    border:1px solid var(--line);
-    background:var(--paper);
+    font-family:var(--body);
+    font-size:1rem;
+    padding:12px 14px;
+    border:3px solid var(--ink);
+    border-radius:14px;
+    background:var(--sun-soft);
     color:var(--ink);
+    transition:background .15s ease, box-shadow .15s ease;
   }
-  .field textarea{resize:vertical;min-height:90px;}
+  .field input:focus,.field textarea:focus{
+    background:#fff;
+    box-shadow:0 0 0 5px var(--sky);
+  }
+  .field ::placeholder{color:#5f808f;}
+  .field textarea{resize:vertical;min-height:100px;}
   .field-row{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:12px;
   }
   .form-msg{
-    font-size:0.86rem;
-    margin-top:10px;
-    min-height:1.4em;
+    font-family:var(--display);
+    font-size:.98rem;
+    margin-top:12px;
+    min-height:1.5em;
   }
-  .form-msg.ok{color:var(--forest);}
-  .form-msg.err{color:var(--berry);}
+  .form-msg.ok{color:var(--ink);background:var(--mint);border:2.5px solid var(--ink);border-radius:12px;padding:6px 12px;}
+  .form-msg.err{color:var(--ink);background:var(--pink-soft);border:2.5px solid var(--ink);border-radius:12px;padding:6px 12px;}
+  #rsvp-form .hint{margin-top:12px;}
+
+  .msg-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    min-height:80px;
+    padding:12px 6px 8px;
+  }
+  .msg-list.collapsed .msg-card:nth-child(n+4){display:none;}
+  .msg-list.expanded{
+    max-height:440px;
+    overflow-y:auto;
+  }
+  .msg-toggle{margin-top:14px;}
+  .msg-toggle[hidden]{display:none;}
+  .msg-card{
+    position:relative;
+    background:#FFF59D;
+    border:3px solid var(--ink);
+    border-radius:6px 16px 10px 16px;
+    padding:18px 16px 12px;
+    box-shadow:3px 3px 0 var(--ink);
+  }
+  .msg-card:nth-child(4n+2){background:var(--pink-soft);}
+  .msg-card:nth-child(4n+3){background:var(--sky-soft);}
+  .msg-card:nth-child(4n+4){background:var(--mint-soft);}
+  .msg-card:nth-child(odd){transform:rotate(-1deg);}
+  .msg-card:nth-child(even){transform:rotate(1.2deg);}
+  .msg-card::before{
+    content:"";
+    position:absolute;
+    top:-12px;
+    left:50%;
+    width:56px;
+    height:20px;
+    transform:translateX(-50%) rotate(-3deg);
+    background:rgba(255,92,147,.6);
+    border:1.5px solid rgba(15,58,74,.25);
+  }
+  .msg-card.empty{
+    background:#fff;
+    border-style:dashed;
+    text-align:center;
+    color:var(--ink-soft);
+    font-weight:700;
+    transform:none;
+    box-shadow:none;
+  }
+  .msg-card.empty::before{display:none;}
+  .msg-text{
+    white-space:pre-line;
+    font-family:var(--hand);
+    font-weight:700;
+    font-size:1.3rem;
+    line-height:1.45;
+    margin:0 0 6px;
+  }
+  .msg-name{
+    margin:0;
+    font-family:var(--display);
+    font-size:.92rem;
+    text-align:right;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- 연사 지원 ---------- */
+  .recruit-row{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  @media (min-width:640px){
+    .recruit-row{grid-template-columns:1fr 1fr;align-items:stretch;}
+  }
+  .recruit-guide,.gform-cta{
+    position:relative;
+    min-width:0;
+    border:3px solid var(--ink);
+    border-radius:var(--r-lg);
+    padding:26px 22px;
+    box-shadow:6px 6px 0 var(--ink);
+  }
+  .recruit-guide{background:#fff;}
+  .recruit-guide p.gf-title{font-family:var(--display);font-size:1.15rem;margin-bottom:14px;line-height:1.4;}
+  .speaker-steps{display:flex;flex-direction:column;gap:12px;}
+  .speaker-step{display:flex;align-items:center;gap:12px;font-size:.98rem;}
+  .speaker-step .n{
+    flex:none;
+    width:30px;
+    height:30px;
+    display:grid;
+    place-items:center;
+    font-family:var(--display);
+    background:var(--pink);
+    border:2.5px solid var(--ink);
+    border-radius:50%;
+    box-shadow:2px 2px 0 var(--ink);
+  }
+  .speaker-step:nth-child(2) .n{background:var(--sky);}
+  .speaker-step:nth-child(3) .n{background:var(--mint);}
+  .speaker-step:nth-child(4) .n{background:var(--orange);}
+  .speaker-step .t{color:var(--ink);}
+  .gform-cta{
+    background:var(--sun);
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    gap:14px;
+  }
+  .gform-cta::after{
+    content:"📣";
+    position:absolute;
+    top:-20px;
+    right:18px;
+    font-size:2.3rem;
+    transform:rotate(12deg);
+    filter:drop-shadow(2px 2px 0 var(--ink));
+  }
+  .gform-cta .btn{font-size:1.15rem;}
 
   /* ---------- footer ---------- */
   footer{
-    padding-block:40px calc(48px + env(safe-area-inset-bottom,0px));
-    border-top:1px solid var(--line);
+    background:var(--sun-soft);
+    padding:34px 20px calc(48px + env(safe-area-inset-bottom,0px));
     text-align:center;
-    color:var(--ink-soft);
-    font-size:0.88rem;
     display:flex;
     flex-direction:column;
+    align-items:center;
     gap:6px;
+    font-size:.93rem;
   }
   .footer-logos{
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:12px;
+    align-items:center;
+    gap:22px;
     margin-bottom:10px;
   }
-  .footer-logos img{
-    height:26px;
-    width:auto;
-    display:block;
+  .footer-logos img{height:34px;width:auto;display:block;}
+  footer .foot-brand{font-family:var(--display);font-size:1.15rem;}
+  footer .foot-sign{font-family:var(--hand);font-weight:700;font-size:1.4rem;}
+
+  /* ---------- 컨페티 ---------- */
+  .confetti{
+    position:fixed;
+    width:10px;
+    height:14px;
+    border:2px solid var(--ink);
+    border-radius:3px;
+    z-index:999;
+    pointer-events:none;
+    animation:confetti 1s cubic-bezier(.2,.8,.3,1) forwards;
   }
-  footer .foot-brand{
-    font-family:'Gowun Batang',serif;
-    color:var(--ink);
-    font-size:1rem;
+  @keyframes confetti{
+    from{transform:translate(0,0) rotate(0);opacity:1;}
+    to{transform:translate(var(--dx),calc(var(--dy) + 90px)) rotate(var(--r));opacity:0;}
+  }
+
+  /* ---------- 모바일 ---------- */
+  @media (max-width:600px){
+    section{padding-block:52px;}
+    .cloud{padding:62px 44px 64px;}
+    .cloud-bg.wide{display:none;}
+    .cloud-bg.tall{display:block;}
+    .bubble{font-size:.95rem;padding:3px 12px;}
+    .bubble-date{left:0;}
+    .bubble-anniv{right:0;}
+    .invite-letter{padding-inline:20px;}
+    .cta-row > .btn{width:100%;}
+    .cta-secondary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+    .tile{flex-direction:column;gap:2px;padding:8px 2px;font-size:.82rem;}
+    .tile .ic{font-size:1.3rem;}
+    .pill{min-width:70px;font-size:.95rem;}
+    .info-list li{gap:10px;}
+    .t-item{grid-template-columns:38px 1fr;column-gap:10px;}
+    .t-dot span{width:36px;height:36px;font-size:1.05rem;}
+    .timeline::before{left:18px;}
+    .t-time{left:50px;}
+    .deco.hide-m{display:none;}
+    .rsvp-count-big .count-num{font-size:4rem;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation:none !important;
+      transition:none !important;
+    }
+    .reveal{opacity:1;transform:none;}
   }
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 100 100"><polygon points="50,6 62,36 94,38 69,58 78,90 50,72 22,90 31,58 6,38 38,36" fill="currentColor" stroke="#0F3A4A" stroke-width="5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 100 100"><path d="M50 88 C10 58 6 34 24 20 C36 11 47 18 50 28 C53 18 64 11 76 20 C94 34 90 58 50 88 Z" fill="currentColor" stroke="#0F3A4A" stroke-width="5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flower" viewBox="0 0 100 100"><g fill="currentColor" stroke="#0F3A4A" stroke-width="4"><circle cx="50" cy="24" r="17"/><circle cx="74.7" cy="42" r="17"/><circle cx="65.3" cy="71" r="17"/><circle cx="34.7" cy="71" r="17"/><circle cx="25.3" cy="42" r="17"/></g><circle cx="50" cy="50" r="13" fill="#FFF176" stroke="#0F3A4A" stroke-width="4"/></symbol>
+    <symbol id="i-balloon" viewBox="0 0 100 112"><g fill="currentColor" stroke="#0F3A4A" stroke-width="5" stroke-linejoin="round"><path d="M50 6 C76 6 86 28 82 48 C78 67 63 78 50 78 C37 78 22 67 18 48 C14 28 24 6 50 6 Z"/><path d="M43 78 L50 87 L57 78 Z"/></g><path d="M50 87 C42 95 58 100 50 109" fill="none" stroke="#0F3A4A" stroke-width="4" stroke-linecap="round"/></symbol>
+    <symbol id="i-squiggle" viewBox="0 0 104 40"><path d="M4 20 Q16 2 28 20 T52 20 T76 20 T100 20" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
 
 <div class="nav">
   <div class="nav-inner">
@@ -626,11 +854,33 @@
 
 <main>
   <section id="invite" class="hero">
-    <div class="container hero-inner">
-      <div>
-        <span class="eyebrow">청소년운영위원회 &lsquo;Must Have&rsquo; 20주년</span>
-        <h1>다시, 우리 Must Have로</h1>
-        <p class="tagline">함께 만든 20년, 다시 잇는 우리의 이야기</p>
+    <svg class="deco float hide-m" style="top:70px;left:4%;width:52px;color:#FF9A3C;--rot:-12deg;--d:0s" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#i-star"/></svg>
+    <svg class="deco float" style="top:150px;left:1.5%;width:46px;color:#FF9AF0;--rot:-6deg;--d:1.2s" viewBox="0 0 100 112" aria-hidden="true" focusable="false"><use href="#i-balloon"/></svg>
+    <svg class="deco float" style="top:84px;right:2.5%;width:46px;color:#FF5C93;--rot:10deg;--d:.6s" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg>
+    <svg class="deco float hide-m" style="top:330px;right:3%;width:56px;color:#5CE1FF;--rot:0deg;--d:2s" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#i-flower"/></svg>
+    <svg class="deco float hide-m" style="top:470px;left:2.5%;width:44px;color:#B58CE8;--rot:14deg;--d:1.6s" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#i-star"/></svg>
+    <svg class="deco float" style="bottom:70px;right:5%;width:80px;color:#FF9A3C;--rot:-4deg;--d:.9s" viewBox="0 0 104 40" aria-hidden="true" focusable="false"><use href="#i-squiggle"/></svg>
+    <svg class="deco float hide-m" style="bottom:200px;right:1.5%;width:44px;color:#8CF28F;--rot:8deg;--d:2.4s" viewBox="0 0 100 112" aria-hidden="true" focusable="false"><use href="#i-balloon"/></svg>
+
+    <div class="container">
+      <div class="hero-title">
+        <span class="bubble bubble-date">26.10.31</span>
+        <span class="bubble bubble-anniv" id="anniv-bubble">20주년 기념!</span>
+        <div class="cloud">
+          <svg class="cloud-bg wide" viewBox="0 0 600 220" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M50,50 A56,56 0 0 1 150,50 A56,56 0 0 1 250,50 A56,56 0 0 1 350,50 A56,56 0 0 1 450,50 A56,56 0 0 1 550,50 A40,40 0 0 1 550,110 A40,40 0 0 1 550,170 A56,56 0 0 1 450,170 A56,56 0 0 1 350,170 A56,56 0 0 1 250,170 A56,56 0 0 1 150,170 A56,56 0 0 1 50,170 A40,40 0 0 1 50,110 A40,40 0 0 1 50,50 Z"/></svg>
+          <svg class="cloud-bg tall" viewBox="0 0 340 300" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M40,50 A50,50 0 0 1 126.67,50 A50,50 0 0 1 213.33,50 A50,50 0 0 1 300,50 A40,40 0 0 1 300,116.67 A40,40 0 0 1 300,183.33 A40,40 0 0 1 300,250 A50,50 0 0 1 213.33,250 A50,50 0 0 1 126.67,250 A50,50 0 0 1 40,250 A40,40 0 0 1 40,183.33 A40,40 0 0 1 40,116.67 A40,40 0 0 1 40,50 Z"/></svg>
+          <h1>
+            <span class="cloud-top">청소년운영위원회</span>
+            <span class="mh">Must Have</span>
+            <span class="hc">홈커밍데이</span>
+          </h1>
+        </div>
+      </div>
+
+      <p class="tagline"><span>함께 만든 <b class="n20">20년</b>, 다시 잇는 우리의 이야기</span></p>
+
+      <div class="live-row">
+        <span class="dday" id="dday" aria-label="행사까지 남은 날">D-?</span>
         <p class="rsvp-live-count">🎉 지금까지 <span class="count-num" id="hero-count-num">0</span>명의 선배가 함께하기로 했어요</p>
       </div>
 
@@ -640,46 +890,48 @@
         <p>올해로 스무 살이 된 Must Have가 그 시간을 함께 만든 선배님과 지도자 선생님들을 집으로 초대합니다. 그때의 이야기, 지금의 이야기, 그리고 앞으로의 이야기를 후배들과 함께 나눠주세요.</p>
         <p>그때 저희를 이끌어주셨던 <strong>역대 지도자 선생님들</strong>께도 이 초대장이 닿기를 바랍니다.<br>선생님 덕분에 지금의 저희가 있습니다. 꼭 함께해주세요.</p>
 
-        <div class="facts">
-          <div class="fact">
-            <span class="ico">📅</span>
-            <div><div class="label">일시</div><div class="val">2026년 10월 31일(토) 14:30–17:50</div></div>
-          </div>
-          <div class="fact">
-            <span class="ico">📍</span>
-            <div><div class="label">장소</div><div class="val">산울림청소년센터 야외무대 · 1층 맥놀이판</div><div class="addr">경기도 부천시 원미구 역곡로 149-65</div></div>
-          </div>
-          <div class="fact">
-            <span class="ico">👥</span>
-            <div><div class="label">대상</div><div class="val">역대 Must Have 위원 및 지도자</div></div>
-          </div>
-        </div>
+        <ul class="info-list">
+          <li><span class="pill">📅 일시</span><div><strong>2026년 10월 31일(토) 14:30–17:50</strong></div></li>
+          <li><span class="pill">📍 장소</span><div><strong>산울림청소년센터 야외무대 · 1층 맥놀이판</strong><small>경기도 부천시 원미구 역곡로 149-65</small></div></li>
+          <li><span class="pill">👥 대상</span><div><strong>역대 Must Have 위원 및 지도자</strong></div></li>
+        </ul>
 
         <div class="cta-row">
           <a class="btn btn-primary" href="#rsvp">참석 신청하기</a>
-          <a class="btn btn-primary" href="https://open.kakao.com/o/gSC2OTNi" target="_blank" rel="noopener">📸 추억 사진 올리러 가기</a>
+          <a class="btn btn-sky" href="https://open.kakao.com/o/gSC2OTNi" target="_blank" rel="noopener">📸 추억 사진 올리러 가기</a>
           <div class="cta-secondary">
-            <a class="btn btn-ghost btn-sm" href="#schedule">일정 먼저 보기</a>
-            <a class="btn btn-ghost btn-sm" id="calendar-btn" href="#" target="_blank" rel="noopener">🗓️ 캘린더</a>
-            <button class="btn btn-ghost btn-sm" type="button" id="share-btn">🔗 공유</button>
-            <a class="btn btn-ghost btn-sm" href="https://map.kakao.com/link/search/%EC%82%B0%EC%9A%B8%EB%A6%BC%EC%B2%AD%EC%86%8C%EB%85%84%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">🧭 길찾기</a>
+            <a class="btn btn-ghost btn-sm tile" href="#schedule"><span class="ic">📋</span><span class="lbl">일정 보기</span></a>
+            <a class="btn btn-ghost btn-sm tile" id="calendar-btn" href="#" target="_blank" rel="noopener"><span class="ic">🗓️</span><span class="lbl">캘린더</span></a>
+            <button class="btn btn-ghost btn-sm tile" type="button" id="share-btn"><span class="ic">🔗</span><span class="lbl">공유</span></button>
+            <a class="btn btn-ghost btn-sm tile" href="https://map.kakao.com/link/search/%EC%82%B0%EC%9A%B8%EB%A6%BC%EC%B2%AD%EC%86%8C%EB%85%84%EC%84%BC%ED%84%B0" target="_blank" rel="noopener"><span class="ic">🧭</span><span class="lbl">길찾기</span></a>
           </div>
         </div>
-        <p class="hint">🎁 에코백·파우치 기념품과 다과를 준비했어요 · 같은 기수 친구와 함께 오시면 더 반가워요!<br>📸 그 시절 사진은 오픈채팅방에 편하게 올려주세요</p>
-        <p class="signoff">제20기 Must Have 드림</p>
+
+        <div class="perks">
+          <span class="perk">🎁 에코백·파우치 기념품과 다과</span>
+          <span class="perk">👯 같은 기수 친구와 함께 오면 더 반가워요</span>
+          <span class="perk">📸 그 시절 사진은 오픈채팅방에!</span>
+        </div>
+        <p class="signoff">제20기 Must Have 드림 💌</p>
       </div>
     </div>
   </section>
 
-  <div class="wave-divider" aria-hidden="true">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,32 C240,64 480,0 720,20 C960,40 1200,64 1440,28 L1440,60 L0,60 Z"></path></svg>
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>★ 20주년 기념 ★ 2026.10.31(토) ★ Must Have 홈커밍데이 ★ 함께 만든 20년, 다시 잇는 우리의 이야기 ★ 20주년 기념 ★ 2026.10.31(토) ★ Must Have 홈커밍데이 ★ 함께 만든 20년, 다시 잇는 우리의 이야기</span>
+        <span>★ 20주년 기념 ★ 2026.10.31(토) ★ Must Have 홈커밍데이 ★ 함께 만든 20년, 다시 잇는 우리의 이야기 ★ 20주년 기념 ★ 2026.10.31(토) ★ Must Have 홈커밍데이 ★ 함께 만든 20년, 다시 잇는 우리의 이야기</span>
+      </div>
+    </div>
   </div>
+  <div class="scallop from-sun to-sky" aria-hidden="true"></div>
 
-  <section id="schedule" class="alt-bg">
+  <section id="schedule" class="sec-sky">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">당일 타임테이블</span>
-        <h2>2026.10.31(토) · 산울림청소년센터</h2>
+        <h2><span class="mark">2026.10.31(토)</span> · 산울림청소년센터</h2>
         <p class="lede">야외무대에서 이야기를 듣고, 1층 맥놀이판에서 이야기를 이어가요.</p>
       </div>
 
@@ -697,12 +949,13 @@
       </ol>
     </div>
   </section>
+  <div class="scallop from-sky to-pink" aria-hidden="true"></div>
 
-  <section id="rsvp">
+  <section id="rsvp" class="sec-pink">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">참석 신청</span>
-        <h2>함께하실 선배님, 지도자 선생님, 이름을 남겨주세요.</h2>
+        <h2><span class="mark">함께하실 선배님, 지도자 선생님, 이름을 남겨주세요.</span></h2>
         <p class="lede">이름과 기수만 남겨주시면 참석 신청이 끝나요. 지금까지 몇 분이 함께하기로 했는지 숫자로 확인할 수 있어요.</p>
       </div>
 
@@ -738,19 +991,20 @@
         <div class="rsvp-card">
           <div class="rsvp-count-label">지금까지 함께하기로 한 분들</div>
           <p class="rsvp-count-big"><span class="count-num" id="rsvp-count-num">0</span>명</p>
-          <p class="hint">응원 메시지를 남겨주신 분들</p>
+          <p class="hint">응원 메시지를 남겨주신 분들 💌</p>
           <div id="msg-list" class="msg-list"></div>
           <button type="button" id="msg-toggle" class="btn btn-ghost btn-sm msg-toggle" aria-expanded="false" hidden></button>
         </div>
       </div>
     </div>
   </section>
+  <div class="scallop from-pink to-mint" aria-hidden="true"></div>
 
-  <section id="speaker-recruit" class="alt-bg">
+  <section id="speaker-recruit" class="sec-mint">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">연사 지원</span>
-        <h2>당신의 성장 이야기를 들려주세요</h2>
+        <h2><span class="mark">당신의 성장 이야기를 들려주세요</span></h2>
         <p class="lede">Must Have 활동이 지금의 나에게 남긴 것을 들려주실 연사를 찾고 있어요. 참석 신청과는 별개로, 연사로 지원하시는 분만 아래 연사 신청서를 작성해주세요.</p>
       </div>
 
@@ -772,21 +1026,17 @@
       </div>
     </div>
   </section>
-
-
+  <div class="scallop from-mint to-sunsoft" aria-hidden="true"></div>
 </main>
 
 <footer>
   <div class="footer-logos">
-    <picture>
-      <source srcset="assets/sanullim-logo-white.png" media="(prefers-color-scheme: dark)">
-      <img src="assets/sanullim-logo.png" alt="산울림청소년센터" loading="lazy">
-    </picture>
+    <img src="assets/sanullim-logo.png" alt="산울림청소년센터" loading="lazy">
     <img src="assets/musthave-logo.png" alt="청소년운영위원회 Must Have" loading="lazy">
   </div>
   <div class="foot-brand">청소년운영위원회 Must Have 20주년 홈커밍데이</div>
   <div>문의 김민선 청소년지도사 · 032-344-4480</div>
-  <div>제20기 Must Have 드림</div>
+  <div class="foot-sign">제20기 Must Have 드림 💛</div>
 </footer>
 
 <script>
@@ -808,8 +1058,49 @@
   });
 })();
 
+function confetti(from){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var r = from.getBoundingClientRect();
+  var cx = r.left + r.width / 2;
+  var cy = r.top + r.height / 2;
+  var colors = ['#FF5C93', '#5CE1FF', '#8CF28F', '#FFF176', '#FF9A3C', '#B58CE8'];
+  for (var i = 0; i < 30; i++){
+    var p = document.createElement('i');
+    p.className = 'confetti';
+    var ang = Math.random() * Math.PI * 2;
+    var dist = 60 + Math.random() * 150;
+    p.style.cssText = 'left:' + cx + 'px;top:' + cy + 'px;background:' + colors[i % colors.length] +
+      ';--dx:' + Math.round(Math.cos(ang) * dist) + 'px;--dy:' + Math.round(Math.sin(ang) * dist - 70) +
+      'px;--r:' + Math.round(Math.random() * 720 - 360) + 'deg;';
+    document.body.appendChild(p);
+    setTimeout((function(el){ return function(){ el.remove(); }; })(p), 1100);
+  }
+}
+
 (function(){
-  var RSVP_ENDPOINT ='https://script.google.com/macros/s/AKfycbxt0R8OJu8hQzfLaz_HezuB3iYE9PZ-BbyRXKiX9Kql3IOd-lKUTUKeWoDDv1WU0X5Yjg/exec';
+  var dd = document.getElementById('dday');
+  if (dd){
+    var kst = new Date(Date.now() + 9 * 3600 * 1000);
+    var today = Date.UTC(kst.getUTCFullYear(), kst.getUTCMonth(), kst.getUTCDate());
+    var days = Math.round((Date.UTC(2026, 9, 31) - today) / 86400000);
+    if (days > 0){
+      dd.textContent = 'D-' + days;
+      dd.setAttribute('aria-label', '홈커밍데이까지 ' + days + '일');
+    } else if (days === 0){
+      dd.textContent = 'D-DAY!';
+      dd.setAttribute('aria-label', '오늘은 홈커밍데이');
+    } else {
+      dd.textContent = '고마워요 💛';
+      dd.removeAttribute('aria-label');
+    }
+    dd.addEventListener('click', function(){ confetti(dd); });
+  }
+  var bubble = document.getElementById('anniv-bubble');
+  if (bubble) bubble.addEventListener('click', function(){ confetti(bubble); });
+})();
+
+(function(){
+  var RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxt0R8OJu8hQzfLaz_HezuB3iYE9PZ-BbyRXKiX9Kql3IOd-lKUTUKeWoDDv1WU0X5Yjg/exec';
 
   var form = document.getElementById('rsvp-form');
   var msgEl = document.getElementById('rsvp-msg');
@@ -902,7 +1193,7 @@
   var calendarBtn = document.getElementById('calendar-btn');
   if (calendarBtn){
     var calTitle = encodeURIComponent('청소년운영위원회 Must Have 20주년 홈커밍데이');
-    var calDetails = encodeURIComponent('다시, 우리 Must Have로 — 20년 전 함께한 선배님들을 초대합니다.');
+    var calDetails = encodeURIComponent('함께 만든 20년, 다시 잇는 우리의 이야기 — 20년 전 함께한 선배님들을 초대합니다.');
     var calLocation = encodeURIComponent('산울림청소년센터 야외무대 · 1층 맥놀이판');
     calendarBtn.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + calTitle +
       '&dates=20261031T053000Z/20261031T085000Z&details=' + calDetails + '&location=' + calLocation;
@@ -911,24 +1202,26 @@
   var shareBtn = document.getElementById('share-btn');
   if (shareBtn){
     shareBtn.addEventListener('click', function(){
-      var shareData = { title: document.title, text: '청소년운영위원회 Must Have 20주년 홈커밍데이에 초대합니다!', url: location.origin + location.pathname };
+      var shareUrl = location.origin + location.pathname;
+      var shareData = { title: document.title, text: '청소년운영위원회 Must Have 20주년 홈커밍데이에 초대합니다!', url: shareUrl };
       if (navigator.share){
         navigator.share(shareData).catch(function(){});
         return;
       }
       if (navigator.clipboard){
-        navigator.clipboard.writeText(location.origin + location.pathname).then(function(){
-          var original = shareBtn.textContent;
-          shareBtn.textContent = '링크 복사됨!';
-          setTimeout(function(){ shareBtn.textContent = original; }, 2000);
+        navigator.clipboard.writeText(shareUrl).then(function(){
+          var lbl = shareBtn.querySelector('.lbl');
+          var original = lbl.textContent;
+          lbl.textContent = '복사됨!';
+          setTimeout(function(){ lbl.textContent = original; }, 2000);
         });
       }
     });
   }
 
   // 참여 신청은 fetch가 아니라 숨겨진 iframe으로 실제 폼 전송을 해요.
-  // (클로드 아티팩트 안에서는 임의 도메인으로의 fetch/XHR이 보안 정책상 막혀 있어서,
-  //  전통적인 <form target="iframe"> 방식이 더 안전하게 통과돼요.)
+  // (구글 Apps Script는 외부 도메인에서 fetch/XHR 응답을 읽을 수 없어서,
+  //  전통적인 <form target="iframe"> 방식으로 전송해요.)
   form.addEventListener('submit', function(ev){
     var name = document.getElementById('f-name').value.trim();
     var cohort = document.getElementById('f-cohort').value.trim();
@@ -953,6 +1246,7 @@
       submitBtn.disabled = false;
       submitBtn.textContent = '참석 신청하기';
       setMsg('참석 신청이 완료됐어요. 곧 만나요! 🎉', 'ok');
+      confetti(submitBtn);
       form.reset();
       refreshCounts();
       refreshMessages();
@@ -971,7 +1265,7 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(function(el){ revealObserver.observe(el); });
   } else {
     revealEls.forEach(function(el){ el.classList.add('is-visible'); });
