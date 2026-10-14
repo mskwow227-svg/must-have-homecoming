@@ -242,6 +242,40 @@
     padding:3px 16px;
     cursor:pointer;
   }
+  .msg-ticker{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    max-width:min(100%,520px);
+    margin:16px auto 0;
+    padding:7px 16px 7px 8px;
+    background:var(--white);
+    border:var(--line);
+    border-radius:999px;
+    box-shadow:3px 3px 0 var(--ink);
+    text-decoration:none;
+    font-size:.94rem;
+    transition:opacity .3s ease;
+  }
+  .msg-ticker[hidden]{display:none;}
+  .msg-ticker.out{opacity:0;}
+  .ticker-tag{
+    flex:none;
+    font-size:.78rem;
+    font-weight:900;
+    background:var(--ink);
+    color:var(--yellow);
+    border-radius:999px;
+    padding:2px 10px;
+  }
+  .ticker-text{
+    min-width:0;
+    flex:0 1 auto;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .ticker-name{flex:none;font-weight:700;color:var(--ink-soft);font-size:.86rem;}
   .rsvp-live-count{font-weight:500;font-size:.98rem;}
   .count-num{font-weight:900;}
   .rsvp-live-count .count-num{
@@ -574,6 +608,66 @@
   .footer-logos img{height:52px;width:auto;display:block;}
   footer .foot-brand{font-weight:900;font-size:1.05rem;letter-spacing:-.02em;}
 
+  /* ---------- 상영용 메시지 월 (?view=wall) ---------- */
+  body.wall-mode{overflow:hidden;}
+  .wall{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:var(--yellow);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
+    gap:2vh;
+    padding:4vh 5vw 3.5vh;
+    text-align:center;
+  }
+  .wall[hidden]{display:none;}
+  .wall-top{display:flex;flex-direction:column;align-items:center;gap:1.2vh;}
+  .wall-logo{height:clamp(48px,11vh,110px);width:auto;display:block;}
+  .wall-badge{
+    font-size:clamp(.9rem,1.8vw,1.3rem);
+    font-weight:900;
+    background:var(--ink);
+    color:var(--yellow);
+    border-radius:999px;
+    padding:3px 18px;
+  }
+  .wall-stage{flex:1;width:100%;display:flex;align-items:center;justify-content:center;min-height:0;}
+  .wall-card{
+    width:100%;
+    max-width:1100px;
+    max-height:100%;
+    overflow:hidden;
+    background:var(--white);
+    border:var(--line);
+    border-radius:28px;
+    box-shadow:8px 8px 0 var(--ink);
+    padding:clamp(22px,5vh,56px) clamp(22px,5vw,72px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .wall-card.out{opacity:0;transform:translateY(14px);}
+  .wall-text{
+    white-space:pre-line;
+    font-size:clamp(1.5rem,4.2vw,3.4rem);
+    font-weight:900;
+    line-height:1.45;
+    letter-spacing:-.02em;
+  }
+  .wall-card.long .wall-text{font-size:clamp(1.15rem,2.7vw,2.2rem);font-weight:700;}
+  .wall-name{margin-top:.9em;font-size:clamp(1.05rem,2.3vw,1.8rem);font-weight:700;color:var(--ink-soft);}
+  .wall-foot{
+    display:flex;
+    gap:16px;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    font-weight:700;
+    font-size:clamp(1rem,2vw,1.5rem);
+  }
+  .wall-foot b{color:var(--green-text);font-weight:900;font-size:1.3em;}
+
   /* ---------- 컨페티 ---------- */
   .confetti{
     position:fixed;
@@ -643,6 +737,11 @@
           <span class="dday" id="dday" aria-label="행사까지 남은 날">D-?</span>
           <p class="rsvp-live-count">지금까지 <span class="count-num" id="hero-count-num">0</span>명이 함께하기로 했어요</p>
         </div>
+        <a class="msg-ticker" id="msg-ticker" href="#rsvp-wall" hidden>
+          <span class="ticker-tag">응원</span>
+          <span class="ticker-text" id="ticker-text"></span>
+          <span class="ticker-name" id="ticker-name"></span>
+        </a>
       </div>
 
       <div class="invite-letter reveal">
@@ -652,7 +751,7 @@
         <p>그때 저희를 이끌어주셨던 <strong>역대 지도자 선생님들</strong>께도 이 초대장이 닿기를 바랍니다.<br>선생님 덕분에 지금의 저희가 있습니다. 꼭 함께해주세요.</p>
 
         <ul class="info-list">
-          <li><span class="pill">일시</span><div><strong>2026년 10월 31일(토) 14:30–17:50</strong></div></li>
+          <li><span class="pill">일시</span><div><strong>2026년 10월 31일(토) 14:30–16:30</strong></div></li>
           <li><span class="pill">장소</span><div><strong>산울림청소년센터 야외무대 · 1층 맥놀이판</strong><small>경기도 부천시 원미구 역곡로 149&#8209;65</small></div></li>
           <li><span class="pill">대상</span><div><strong>역대 Must Have 위원 및 지도자</strong></div></li>
         </ul>
@@ -696,7 +795,7 @@
         <li class="t-item"><span class="t-dot">4</span>
           <div class="t-body"><span class="t-time">15:20</span><div class="t-title">교류의 장</div><div class="t-desc">1층 맥놀이판으로 이동해 위원장 인사말, 연사와 함께하는 Q&amp;A 토크, 같은 시기에 함께한 선배·지도자님과의 기수별 좌담, 현 위원과의 선후배 토크, 추억 메시지 카드 작성</div></div></li>
         <li class="t-item"><span class="t-dot">5</span>
-          <div class="t-body"><span class="t-time">16:30</span><div class="t-title">단체사진 &amp; 마무리</div><div class="t-desc">1층 맥놀이판 · 짧은 만족도 조사, 단체사진 촬영, 선후배 연락망 업데이트</div></div></li>
+          <div class="t-body"><span class="t-time">16:00</span><div class="t-title">단체사진 &amp; 마무리</div><div class="t-desc">1층 맥놀이판 · 짧은 만족도 조사, 단체사진 촬영, 선후배 연락망 업데이트</div></div></li>
       </ol>
     </div>
   </section>
@@ -738,7 +837,7 @@
           <iframe name="rsvp-target" id="rsvp-target" title="참여 신청 전송" hidden></iframe>
         </div>
 
-        <div class="rsvp-card">
+        <div class="rsvp-card" id="rsvp-wall">
           <div class="rsvp-count-label">지금까지 함께하기로 한 분들</div>
           <p class="rsvp-count-big"><span class="count-num" id="rsvp-count-num">0</span>명</p>
           <p class="hint">응원 메시지를 남겨주신 분들</p>
@@ -785,6 +884,23 @@
   <div class="foot-brand">청소년운영위원회 Must Have 20주년 홈커밍데이</div>
   <div>문의 김민선 청소년지도사 · 032-344-4480</div>
 </footer>
+
+<div class="wall" id="wall" hidden>
+  <div class="wall-top">
+    <img class="wall-logo" src="assets/musthave-logo.png" alt="산울림청소년운영위원회 Must Have" width="1920" height="482">
+    <span class="wall-badge">20주년 홈커밍데이 · 선배님들의 응원 메시지</span>
+  </div>
+  <div class="wall-stage">
+    <div class="wall-card" id="wall-card">
+      <p class="wall-text" id="wall-text"></p>
+      <p class="wall-name" id="wall-name"></p>
+    </div>
+  </div>
+  <div class="wall-foot">
+    <span>지금까지 <b id="wall-count">0</b>명이 함께하기로 했어요</span>
+    <span id="wall-idx"></span>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -863,7 +979,9 @@ function confetti(from){
     var a = document.getElementById('hero-count-num');
     var b = document.getElementById('rsvp-count-num');
     if (a) a.textContent = n;
+    var c = document.getElementById('wall-count');
     if (b) b.textContent = n;
+    if (c) c.textContent = n;
   };
 
   function refreshCounts(){
@@ -876,6 +994,7 @@ function confetti(from){
   }
 
   window.__mhMessages = function(list){
+    if (window.__mhOnMessages) window.__mhOnMessages(list || []);
     var container = document.getElementById('msg-list');
     if (!container) return;
     var toggle = document.getElementById('msg-toggle');
@@ -937,13 +1056,90 @@ function confetti(from){
     refreshMessages();
   }
 
+  // 첫 화면 응원 한 줄 롤링 + 상영용 메시지 월(?view=wall)
+  var wallMode = /(^|[?&])view=wall(&|$)/.test(location.search);
+  var ticker = document.getElementById('msg-ticker');
+  var tickerText = document.getElementById('ticker-text');
+  var tickerName = document.getElementById('ticker-name');
+  var wall = document.getElementById('wall');
+  var wallCard = document.getElementById('wall-card');
+  var msgs = [];
+  var tickerIdx = 0;
+  var wallIdx = 0;
+
+  function oneLine(s){ return String(s).replace(/\s+/g, ' ').trim(); }
+
+  function showTicker(i){
+    var m = msgs[i];
+    tickerText.textContent = oneLine(m.message);
+    tickerName.textContent = '- ' + m.name;
+  }
+
+  function showWall(i){
+    var m = msgs[i];
+    document.getElementById('wall-text').textContent = String(m.message).replace(/\r/g, '').trim();
+    document.getElementById('wall-name').textContent = '- ' + m.name;
+    document.getElementById('wall-idx').textContent = (i + 1) + ' / ' + msgs.length;
+    wallCard.classList.toggle('long', String(m.message).length > 110);
+  }
+
+  window.__mhOnMessages = function(list){
+    msgs = list.filter(function(m){ return m && m.message; });
+    if (!msgs.length){
+      if (ticker) ticker.hidden = true;
+      if (wallMode){
+        document.getElementById('wall-text').textContent = '첫 번째 응원 메시지를 기다리고 있어요';
+        document.getElementById('wall-name').textContent = '';
+        document.getElementById('wall-idx').textContent = '';
+      }
+      return;
+    }
+    if (ticker && !wallMode){
+      tickerIdx = tickerIdx % msgs.length;
+      showTicker(tickerIdx);
+      ticker.hidden = false;
+    }
+    if (wallMode){
+      wallIdx = wallIdx % msgs.length;
+      showWall(wallIdx);
+    }
+  };
+
+  if (ticker && !wallMode){
+    setInterval(function(){
+      if (msgs.length < 2 || document.hidden) return;
+      ticker.classList.add('out');
+      setTimeout(function(){
+        tickerIdx = (tickerIdx + 1) % msgs.length;
+        showTicker(tickerIdx);
+        ticker.classList.remove('out');
+      }, 300);
+    }, 5000);
+  }
+
+  if (wallMode && wall){
+    document.body.classList.add('wall-mode');
+    document.title = '응원 메시지 · ' + document.title;
+    wall.hidden = false;
+    setInterval(function(){
+      if (msgs.length < 2) return;
+      wallCard.classList.add('out');
+      setTimeout(function(){
+        wallIdx = (wallIdx + 1) % msgs.length;
+        showWall(wallIdx);
+        wallCard.classList.remove('out');
+      }, 500);
+    }, 9000);
+    setInterval(function(){ refreshCounts(); refreshMessages(); }, 45000);
+  }
+
   var calendarBtn = document.getElementById('calendar-btn');
   if (calendarBtn){
     var calTitle = encodeURIComponent('청소년운영위원회 Must Have 20주년 홈커밍데이');
     var calDetails = encodeURIComponent('함께 만든 20년, 다시 잇는 우리의 이야기 — 20년 전 함께한 선배님들을 초대합니다.');
     var calLocation = encodeURIComponent('산울림청소년센터 야외무대 · 1층 맥놀이판');
     calendarBtn.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + calTitle +
-      '&dates=20261031T053000Z/20261031T085000Z&details=' + calDetails + '&location=' + calLocation;
+      '&dates=20261031T053000Z/20261031T073000Z&details=' + calDetails + '&location=' + calLocation;
   }
 
   var shareBtn = document.getElementById('share-btn');
