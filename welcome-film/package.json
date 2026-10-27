@@ -1,0 +1,24 @@
+{
+  "name": "homecoming-welcome-film",
+  "version": "1.0.0",
+  "private": true,
+  "description": "산울림청소년센터 청소년운영위원회 Must Have 20주년 홈커밍데이 환영 오프닝 영상",
+  "scripts": {
+    "prep": "python scripts/prep.py && python scripts/make_audio.py",
+    "studio": "remotion studio src/index.ts",
+    "still": "remotion still src/index.ts Homecoming",
+    "render": "remotion render src/index.ts Homecoming out/homecoming_welcome.mp4 --codec=h264 --crf=18 --audio-codec=aac --audio-bitrate=320k --pixel-format=yuv420p --color-space=bt709",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/fonts": "4.0.539",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.8",
+    "typescript": "5.8.3"
+  }
+}

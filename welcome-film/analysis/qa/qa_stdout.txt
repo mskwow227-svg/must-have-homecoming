@@ -1,0 +1,190 @@
+{
+ "brightness": {
+  "frames_measured": 1571,
+  "video_section_min_yavg": 65.4,
+  "video_section_min_at_frame": 210,
+  "black_frames_in_video_section(<16)": [],
+  "endcard_min_yavg": 64.9,
+  "around_boundaries": {
+   "210": [
+    59,
+    59,
+    59,
+    65,
+    67,
+    76,
+    101
+   ],
+   "534": [
+    134,
+    128,
+    93,
+    106,
+    115,
+    126,
+    132
+   ],
+   "817": [
+    133,
+    127,
+    92,
+    109,
+    124,
+    133,
+    138
+   ],
+   "1236": [
+    138,
+    132,
+    95,
+    107,
+    114,
+    124,
+    128
+   ],
+   "1421": [
+    115,
+    113,
+    109,
+    115,
+    98,
+    87,
+    79
+   ]
+  }
+ },
+ "voice": [
+  {
+   "clip": 1,
+   "expected_start_s": 7.0,
+   "voice_len_samples": 518400,
+   "expected_len_samples": 518400,
+   "speech_windows_checked": 36,
+   "first_window_s": 0.25,
+   "last_window_s": 10.5,
+   "lag_samples_minmax": [
+    -2,
+    0
+   ],
+   "gain_min_max": [
+    0.989,
+    1.013
+   ]
+  },
+  {
+   "clip": 2,
+   "expected_start_s": 17.8,
+   "voice_len_samples": 452800,
+   "expected_len_samples": 452800,
+   "speech_windows_checked": 37,
+   "first_window_s": 0.0,
+   "last_window_s": 9.0,
+   "lag_samples_minmax": [
+    -1,
+    1
+   ],
+   "gain_min_max": [
+    0.935,
+    1.019
+   ]
+  },
+  {
+   "clip": 3,
+   "expected_start_s": 27.2333,
+   "voice_len_samples": 670400,
+   "expected_len_samples": 670400,
+   "speech_windows_checked": 55,
+   "first_window_s": 0.0,
+   "last_window_s": 13.5,
+   "lag_samples_minmax": [
+    -17,
+    -16
+   ],
+   "gain_min_max": [
+    0.936,
+    1.025
+   ]
+  },
+  {
+   "clip": 4,
+   "expected_start_s": 41.2,
+   "voice_len_samples": 296000,
+   "expected_len_samples": 296000,
+   "speech_windows_checked": 15,
+   "first_window_s": 0.0,
+   "last_window_s": 3.5,
+   "lag_samples_minmax": [
+    0,
+    0
+   ],
+   "gain_min_max": [
+    0.97,
+    1.021
+   ]
+  }
+ ],
+ "clicks": {
+  "210": {
+   "max_diff_at_boundary": 0.0045,
+   "p99.9_within_1s": 0.0791,
+   "suspicious": false
+  },
+  "534": {
+   "max_diff_at_boundary": 0.0026,
+   "p99.9_within_1s": 0.0585,
+   "suspicious": false
+  },
+  "817": {
+   "max_diff_at_boundary": 0.0055,
+   "p99.9_within_1s": 0.0845,
+   "suspicious": false
+  },
+  "1236": {
+   "max_diff_at_boundary": 0.0089,
+   "p99.9_within_1s": 0.0526,
+   "suspicious": false
+  },
+  "1421": {
+   "max_diff_at_boundary": 0.4876,
+   "p99.9_within_1s": 0.3371,
+   "suspicious": false
+  }
+ },
+ "audio_peak_dbfs": -1.36,
+ "integrated_lufs": -15.7,
+ "captions_text": [
+  {
+   "clip": 1,
+   "caption": "산울림청소년센터 청소년운영위원회 Must Have 제20주년 홈커밍데이에 오신 역대 위원 및 지도자 선생님들을 진심으로 환영합니다",
+   "matches_transcript": true
+  },
+  {
+   "clip": 2,
+   "caption": "20년 전 첫 회의부터 지금까지 함께 웃고 고민하며 만들어 온 소중한 순간들이 모여 오늘의 20주년을 만들었습니다",
+   "matches_transcript": true
+  },
+  {
+   "clip": 3,
+   "caption": "오늘 이 자리가 과거를 추억하는 것을 넘어 새로운 추억을 만들어 가는 시작이 되며 그동안의 추억을 나누고 반가운 얼굴들과 다시 인연을 이어 가는 시간이 되었으면 좋겠습니다",
+   "matches_transcript": true
+  },
+  {
+   "clip": 4,
+   "caption": "다시 한 번 진심으로 환영합니다!",
+   "matches_transcript": true
+  }
+ ],
+ "captions_banned_words_found": [],
+ "contrast_worst_case": {
+  "caption_white_on_pill": 6.09,
+  "caption_yellow_on_pill": 4.68,
+  "caption_dim_word(38%)_on_pill": 2.26,
+  "lowerthird_white": 4.98,
+  "lowerthird_yellow_index": 3.82,
+  "endcard_white_on_navy": 13.89,
+  "endcard_yellow_on_navy": 10.67
+ },
+ "climax_frame": 1326,
+ "climax_text_band_bg_p90_luma": 180.3
+}
+frames: 1571 duration: 52.373000
