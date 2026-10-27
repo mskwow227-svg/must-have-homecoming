@@ -1,0 +1,38 @@
+[
+ {
+  "clip": 1,
+  "frames_src": 324,
+  "frames_out": 324,
+  "seconds": 10.8,
+  "gain_db": 14.6,
+  "lufs_out": -16.1,
+  "true_peak_out": -1.5
+ },
+ {
+  "clip": 2,
+  "frames_src": 283,
+  "frames_out": 283,
+  "seconds": 9.4333,
+  "gain_db": 21.4,
+  "lufs_out": -16.2,
+  "true_peak_out": -1.5
+ },
+ {
+  "clip": 3,
+  "frames_src": 419,
+  "frames_out": 419,
+  "seconds": 13.9667,
+  "gain_db": 22.5,
+  "lufs_out": -16.0,
+  "true_peak_out": -1.5
+ },
+ {
+  "clip": 4,
+  "frames_src": 185,
+  "frames_out": 185,
+  "seconds": 6.1667,
+  "gain_db": 0.6,
+  "lufs_out": -16.0,
+  "true_peak_out": -2.6
+ }
+]
