@@ -483,6 +483,11 @@
   .t-title{font-size:1.15rem;font-weight:900;line-height:1.4;letter-spacing:-.02em;}
   .t-desc{font-size:.93rem;color:var(--ink-soft);margin-top:4px;line-height:1.65;}
   .t-item.highlight .t-desc{color:var(--ink);}
+  .t-list{list-style:none;margin:10px 0 0;padding:10px 0 0;border-top:1.5px dashed rgba(16,48,61,.22);display:grid;gap:4px;}
+  .t-list li{position:relative;padding-left:16px;font-size:.93rem;font-weight:500;line-height:1.55;color:var(--ink);}
+  .t-list li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 1.5px var(--ink);}
+  .t-item.highlight .t-list{border-top-color:rgba(16,48,61,.35);}
+  .t-item.highlight .t-list li::before{background:var(--white);}
 
   /* ---------- 참석 신청 ---------- */
   .rsvp-layout{
@@ -599,50 +604,6 @@
     color:var(--ink-soft);
   }
 
-  /* ---------- 연사 지원 ---------- */
-  .recruit-row{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:20px;
-  }
-  @media (min-width:640px){
-    .recruit-row{grid-template-columns:1fr 1fr;align-items:stretch;}
-  }
-  .recruit-guide,.gform-cta{
-    min-width:0;
-    border:var(--line);
-    border-radius:var(--r);
-    padding:24px 22px;
-    box-shadow:5px 5px 0 var(--ink);
-  }
-  .recruit-guide{background:var(--white);}
-  .recruit-guide p.gf-title{font-size:1.08rem;font-weight:900;letter-spacing:-.02em;margin-bottom:14px;line-height:1.45;}
-  .speaker-steps{display:flex;flex-direction:column;gap:12px;}
-  .speaker-step{display:flex;align-items:center;gap:12px;font-size:.96rem;}
-  .speaker-step .n{
-    flex:none;
-    width:28px;
-    height:28px;
-    display:grid;
-    place-items:center;
-    font-size:.86rem;
-    font-weight:900;
-    background:var(--ink);
-    color:var(--yellow);
-    border-radius:50%;
-  }
-  .gform-cta{
-    background:var(--yellow);
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    justify-content:center;
-    gap:14px;
-  }
-  .gform-cta .hint{color:var(--ink);}
-  .gform-cta .btn-primary{box-shadow:4px 4px 0 var(--white);}
-  .gform-cta .btn-primary:hover{box-shadow:6px 6px 0 var(--white);}
-
   /* ---------- footer ---------- */
   footer{
     background:var(--yellow);
@@ -754,7 +715,7 @@
     .hero{padding-block:36px 48px;}
     .cta-row > .btn-primary,
     .cta-row > .btn-ghost:not(.tile){width:100%;}
-    .cta-secondary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+    .cta-secondary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
     .tile{flex-direction:column;gap:3px;padding:9px 2px;font-size:.82rem;}
     .tile .ic{width:1.35em;height:1.35em;}
     .info-list li{gap:12px;}
@@ -808,7 +769,6 @@
       <a href="#invite">초대장</a>
       <a href="#schedule">일정</a>
       <a href="#rsvp">참석 신청</a>
-      <a href="#speaker-recruit">연사 지원</a>
     </nav>
   </div>
 </div>
@@ -848,9 +808,8 @@
 
         <div class="cta-row">
           <a class="btn btn-primary" href="#rsvp"><span class="lbl">참석 신청하기</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-          <a class="btn btn-ghost" href="https://open.kakao.com/o/gSC2OTNi" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><span class="lbl">추억 사진 올리러 가기</span></a>
+          <a class="btn btn-ghost" href="#schedule"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span class="lbl">당일 일정 보기</span></a>
           <div class="cta-secondary">
-            <a class="btn btn-ghost btn-sm tile" href="#schedule"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span class="lbl">일정 보기</span></a>
             <a class="btn btn-ghost btn-sm tile" id="calendar-btn" href="#" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-calendar-plus"/></svg><span class="lbl">캘린더</span></a>
             <button class="btn btn-ghost btn-sm tile" type="button" id="share-btn"><svg class="ic" aria-hidden="true"><use href="#i-share"/></svg><span class="lbl">공유</span></button>
             <a class="btn btn-ghost btn-sm tile" href="https://map.kakao.com/link/search/%EC%82%B0%EC%9A%B8%EB%A6%BC%EC%B2%AD%EC%86%8C%EB%85%84%EC%84%BC%ED%84%B0" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg><span class="lbl">길찾기</span></a>
@@ -860,7 +819,7 @@
         <ul class="perks">
           <li><span class="perk-ic"><svg class="ic" aria-hidden="true"><use href="#i-gift"/></svg></span>에코백·파우치 기념품과 다과를 준비했어요</li>
           <li><span class="perk-ic"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span>동기·선후배와 함께 오셔도 좋아요. 동반 인원을 신청서에 적어주세요</li>
-          <li><span class="perk-ic"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg></span>그 시절 사진은 오픈채팅방에 올려주세요</li>
+          <li><span class="perk-ic"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span>14:30까지 야외무대로 와주세요. 접수는 개회식이 끝난 뒤 1층 맥놀이판에서 해요</li>
         </ul>
         <p class="signoff">제20기 Must Have 드림</p>
       </div>
@@ -872,18 +831,28 @@
       <div class="section-head reveal">
         <span class="eyebrow"><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg>당일 타임테이블</span>
         <h2><span class="mark">2026.10.31(토)</span> · 산울림청소년센터</h2>
-        <p class="lede">야외무대에서 이야기를 듣고, 1층 맥놀이판에서 이야기를 이어가요.</p>
+        <p class="lede">야외무대에서 함께 문을 열고, 1층 맥놀이판으로 옮겨 이야기를 이어가요.</p>
       </div>
 
       <ol class="timeline reveal">
-        <li class="t-item"><span class="t-dot"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg></span>
-          <div class="t-body"><span class="t-time">14:30</span><div class="t-title">개회</div><div class="t-desc">야외무대 · 20년의 발자취를 함께 돌아봐요</div></div></li>
         <li class="t-item highlight"><span class="t-dot"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg></span>
-          <div class="t-body"><span class="t-time">14:40</span><div class="t-title">릴레이 발표 &ldquo;Must Have가 나를 키웠다&rdquo;</div><div class="t-desc">야외무대 · 선배와 후배 세 사람이 들려주는 성장 이야기</div></div></li>
-        <li class="t-item"><span class="t-dot"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></span>
-          <div class="t-body"><span class="t-time">15:20</span><div class="t-title">교류의 장</div><div class="t-desc">1층 맥놀이판 · 다과를 나누며 선후배, 선생님과 이야기를 이어가요</div></div></li>
+          <div class="t-body"><span class="t-time">14:30 – 15:15</span><div class="t-title">개회식 &amp; 청운위 생일파티</div><div class="t-desc">야외무대 · 20주년의 문을 함께 열어요</div>
+            <ul class="t-list">
+              <li>개회식으로 홈커밍데이를 시작해요</li>
+              <li>연사 두 분이 Must Have와 함께한 이야기를 들려드려요</li>
+              <li>청운위의 스무 번째 생일을 다 함께 축하해요</li>
+            </ul></div></li>
         <li class="t-item"><span class="t-dot"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg></span>
-          <div class="t-body"><span class="t-time">16:00</span><div class="t-title">단체사진 &amp; 마무리</div><div class="t-desc">1층 맥놀이판 · 함께 사진을 남기며 마무리해요</div></div></li>
+          <div class="t-body"><span class="t-time">15:15 – 15:30</span><div class="t-title">이동 · 접수 · 포토존</div><div class="t-desc">1층 맥놀이판 · 자리를 옮겨 접수를 마친 뒤, 포토존에서 자유롭게 사진을 남겨요</div></div></li>
+        <li class="t-item"><span class="t-dot"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></span>
+          <div class="t-body"><span class="t-time">15:30 – 16:30</span><div class="t-title">좌담회 · 퀴즈 · 단체사진</div><div class="t-desc">1층 맥놀이판 · 역대 위원과 현재 위원이 한자리에 모여요</div>
+            <ul class="t-list">
+              <li>역대·현재 위원이 함께하는 좌담회</li>
+              <li>역대 청운위 퀴즈</li>
+              <li>응원 메시지 카드 쓰기</li>
+              <li>오늘의 소감 나누기</li>
+              <li>다 함께 단체사진</li>
+            </ul></div></li>
       </ol>
     </div>
   </section>
@@ -931,33 +900,6 @@
           <p class="hint">응원 메시지를 남겨주신 분들</p>
           <div id="msg-list" class="msg-list"></div>
           <button type="button" id="msg-toggle" class="btn btn-ghost btn-sm msg-toggle" aria-expanded="false" hidden></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="speaker-recruit">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg>연사 지원</span>
-        <h2><span class="mark">당신의 성장 이야기를 들려주세요</span></h2>
-        <p class="lede">Must Have 활동이 지금의 나에게 남긴 것을 들려주실 연사를 찾고 있어요. 참석 신청과는 별개로, 연사로 지원하시는 분만 아래 연사 신청서를 작성해주세요.</p>
-      </div>
-
-      <div class="recruit-row reveal">
-        <div class="recruit-guide">
-          <p class="gf-title">연사로 지원하시면 이렇게 구성돼요 <span style="white-space:nowrap">(입·퇴장 포함 10분)</span></p>
-          <div class="speaker-steps">
-            <div class="speaker-step"><span class="n">1</span><span class="t">Must Have에 들어가기 전의 나 (2분)</span></div>
-            <div class="speaker-step"><span class="n">2</span><span class="t">활동 중 가장 결정적이었던 장면 (3분)</span></div>
-            <div class="speaker-step"><span class="n">3</span><span class="t">그 경험이 지금의 나에게 남긴 것 (2분)</span></div>
-            <div class="speaker-step"><span class="n">4</span><span class="t">후배에게 한마디 (2분)</span></div>
-          </div>
-        </div>
-
-        <div class="gform-cta">
-          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe8JG0N3tkGtmBXsE7ZbnTYEeKViJvJ20QWxyTG1VPRyI-r6Q/viewform" target="_blank" rel="noopener"><span class="lbl">연사 지원서 작성하기</span><svg class="ic" aria-hidden="true"><use href="#i-external"/></svg></a>
-          <p class="hint">새 탭에서 구글폼이 열려요. 지금 바로 지원하고 싶다면 전화나 문자도 좋아요<br><strong>김민선 청소년지도사 · 032-344-4480</strong></p>
         </div>
       </div>
     </div>
